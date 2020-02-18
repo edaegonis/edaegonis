@@ -6,12 +6,36 @@ const Title = styled.h1`
   font-size: 50px;
   color: ${({ theme }) => theme.colors.primary};
 `
-const data = [
-  { language: "javascript", percentage: 80 },
-  { language: "golang", percentage: 60 },
-  { language: "python", percentage: 65 },
-  { language: "java", percentage: 50 },
-  { language: "php", percentage: 70 }
+
+const toolsData = [
+  { name: "Git", value: 90 },
+  { name: "Webpack", value: 60 },
+  { name: "Gulp", value: 65 },
+
+  { name: "Docker", value: 55 },
+  { name: "Babel", value: 65 },
+  { name: "styled-components", value: 70 },
+  { name: "react-testing-library", value: 70 },
+  { name: "Jest", value: 70 }
+]
+
+const frameworksData = [
+  { name: "Magento 2", value: 65 },
+  { name: "React", value: 85 },
+  { name: "jQuery", value: 80 },
+  { name: "Tachyons", value: 70 },
+  { name: "Express", value: 60 },
+  { name: "React Native", value: 65 },
+  { name: "ApolloGraphql", value: 65 }
+]
+
+const languagesData = [
+  { name: "HTML", value: 85 },
+  { name: "CSS(SASS/LESS)", value: 85 },
+  { name: "SQL", value: 50 },
+  { name: "PHP", value: 70 },
+  { name: "Javascript", value: 90 },
+  { name: "Lua", value: 50 }
 ]
 
 const GlobalStyle = createGlobalStyle`
@@ -49,28 +73,46 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const StyledDiv = styled.div`
-  width: 400px;
-  height: 400px;
-  margin: auto;
-  margin-top: 50px;
+const StyledChartsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  text-align: center;
 `
+
+const StyledChartWrapper = styled.div`
+  width: 300px;
+  height: 300px;
+  margin: 0 60px;
+`
+
+const DataChart = ({ data }) => (
+  <ResponsiveRadar
+    data={data}
+    keys={["value"]}
+    curve="linearClosed"
+    indexBy="name"
+    margin={{ top: 60, right: 60, bottom: 60, left: 60 }}
+    maxValue={100}
+    gridLevels={6}
+    enableDotLabel={true}
+    colors={["#900990"]}
+  />
+)
 
 export default () => (
   <>
     <GlobalStyle />
-    <StyledDiv>
-      <ResponsiveRadar
-        keys={["percentage"]}
-        curve="linearClosed"
-        indexBy="language"
-        margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
-        data={data}
-        maxValue={100}
-        gridLevels={6}
-        enableDotLabel={true}
-        colors={["#900990"]}
-      />
-    </StyledDiv>
+    <StyledChartsWrapper>
+      <StyledChartWrapper>
+        <DataChart data={languagesData} />
+      </StyledChartWrapper>
+      <StyledChartWrapper>
+        <DataChart data={frameworksData} />
+      </StyledChartWrapper>
+      <StyledChartWrapper>
+        <DataChart data={toolsData} />
+      </StyledChartWrapper>
+    </StyledChartsWrapper>
   </>
 )
