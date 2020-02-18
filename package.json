@@ -7,6 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@nivo/radar": "^0.61.1",
     "next": "latest",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
