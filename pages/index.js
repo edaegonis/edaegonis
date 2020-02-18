@@ -31,7 +31,7 @@ const frameworksData = [
 
 const languagesData = [
   { name: "HTML", value: 85 },
-  { name: "CSS(SASS/LESS)", value: 85 },
+  { name: "CSS(SASS)", value: 85 },
   { name: "SQL", value: 50 },
   { name: "PHP", value: 70 },
   { name: "Javascript", value: 90 },
@@ -44,13 +44,21 @@ const GlobalStyle = createGlobalStyle`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
   }
+
+  html {
+    font-size: 62.5%;
+  }
+  
   body {
+    font-size: 1.6rem;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    background: #F9F9F9
   }
   html, body {
     min-height: 100%;
   }
+  
   ul {
     list-style: none;
     margin: 0;
@@ -60,30 +68,33 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     cursor: pointer
   }
+
   a, p, span {
     color: #363636;
     line-height: 1.5
   }
+  
   h1, h2, h3 {
     color: #1d1d1d;
   }
 
-  body {
-    background: #F9F9F9
-  }
+`
+
+const StyledContainer = styled.div`
+  margin: 0 auto;
+  max-width: 110rem;
 `
 
 const StyledChartsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
-  text-align: center;
+  justify-content: space-between;
 `
 
 const StyledChartWrapper = styled.div`
-  width: 300px;
-  height: 300px;
-  margin: 0 60px;
+  margin: 0 auto;
+  height: 32rem;
+  flex: 0 32rem;
 `
 
 const DataChart = ({ data }) => (
@@ -92,27 +103,37 @@ const DataChart = ({ data }) => (
     keys={["value"]}
     curve="linearClosed"
     indexBy="name"
-    margin={{ top: 60, right: 60, bottom: 60, left: 60 }}
+    margin={{ top: 70, right: 70, bottom: 70, left: 70 }}
     maxValue={100}
     gridLevels={6}
     enableDotLabel={true}
     colors={["#900990"]}
+    dotLabelYOffset={-6}
+    gridLabelOffset={8}
   />
 )
+
+const StyledChartsTitle = styled.h3`
+  color: #900990;
+  text-align: center;
+`
 
 export default () => (
   <>
     <GlobalStyle />
-    <StyledChartsWrapper>
-      <StyledChartWrapper>
-        <DataChart data={languagesData} />
-      </StyledChartWrapper>
-      <StyledChartWrapper>
-        <DataChart data={frameworksData} />
-      </StyledChartWrapper>
-      <StyledChartWrapper>
-        <DataChart data={toolsData} />
-      </StyledChartWrapper>
-    </StyledChartsWrapper>
+    <StyledContainer>
+      <StyledChartsTitle>Charts</StyledChartsTitle>
+      <StyledChartsWrapper>
+        <StyledChartWrapper>
+          <DataChart data={languagesData} />
+        </StyledChartWrapper>
+        <StyledChartWrapper>
+          <DataChart data={frameworksData} />
+        </StyledChartWrapper>
+        <StyledChartWrapper>
+          <DataChart data={toolsData} />
+        </StyledChartWrapper>
+      </StyledChartsWrapper>
+    </StyledContainer>
   </>
 )
