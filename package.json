@@ -9,7 +9,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "test": "jest --collectCoverage=true"
+    "test": "jest --collectCoverage=true --watch"
   },
   "dependencies": {
     "@nivo/radar": "^0.61.1",
