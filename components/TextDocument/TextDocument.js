@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const StyledTextDocument = styled.div`
   padding: 8rem 0;
-  margin-left: 1.5rem;
+  margin: 0 1.5rem;
   max-width: 42rem;
 
   @media (min-width: ${({
@@ -11,7 +11,7 @@ const StyledTextDocument = styled.div`
         settings: { desktop_breakpoint }
       }
     }) => desktop_breakpoint}) {
-    margin-left: 3rem;
+    margin: 0 3rem;
   }
 `
 
