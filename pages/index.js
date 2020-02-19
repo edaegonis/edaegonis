@@ -5,6 +5,7 @@ import GlobalStyle from "../styles/GlobalStyle"
 import Text from "../components/Text/Text"
 import DataRadarChart from "../components/DataRadarChart/DataRadarChart"
 import { toolsData, frameworksData, languagesData } from "../data/technologies"
+import ReactLogo from "../components/ReactLogo"
 
 const StyledContainer = styled.main`
   margin: 0 auto;
@@ -76,6 +77,11 @@ const StyledTitle = styled(Text)`
   margin: 0;
 `
 
+const StyledReactLogo = styled(ReactLogo)`
+  max-width: 3.6rem;
+  vertical-align: middle;
+`
+
 export default () => (
   <section>
     <GlobalStyle />
@@ -85,16 +91,23 @@ export default () => (
         <StyledHeader>
           <StyledAvatarWrapper>
             <StyledAvatar>
-              <StyledAvatarImg src="/images/avatar2.jpeg" />
+              <StyledAvatarImg src="/images/background.jpeg" />
             </StyledAvatar>
           </StyledAvatarWrapper>
           <StyledTitleSection>
-            <StyledTitle size="large">Eduardo Campos de Souza</StyledTitle>
-            <Text>edusorcerer@gmail.com</Text>
+            <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
+            <Text>Less is more.</Text>
           </StyledTitleSection>
         </StyledHeader>
-        <Text>Creating things</Text>
-        <Text>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd</Text>
+
+        <Text>
+          Building elegant products effortlessly
+          <StyledReactLogo />
+        </Text>
+
+        <Text>
+          You can read more <a>about me</a>. Also, the <a>tools I use</a>.
+        </Text>
       </StyledTextDocument>
 
       <Text size="medium">Favorite Development Technologies</Text>

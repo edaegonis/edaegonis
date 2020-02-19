@@ -2,7 +2,8 @@ export const theme = {
   colors: {
     background: "#091836",
     text: "#F3F3F3",
-    special: "#D5A890"
+    special: "#D5A890",
+    another_special: "#F33663"
   },
   settings: {
     small: { size: "1.6rem", line_height: "1.92" },

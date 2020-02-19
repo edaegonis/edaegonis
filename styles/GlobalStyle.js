@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
     settings: {
       small: { size }
     },
-    colors: { background, text, special }
+    colors: { background, text, another_special }
   } = theme
 
   return `
@@ -54,7 +54,7 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
       a {
         text-decoration: none;
         cursor: pointer;
-        color: ${special};
+        color: ${another_special};
       }
   
       text {
