@@ -35,7 +35,10 @@ Text.propTypes = {
   /** The size of the text to be rendered */
   size: PropTypes.oneOf(["small", "medium", "large"]).isRequired,
   /** The children components */
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   /** The className for the element (generally from styled-components) */
   className: PropTypes.string
 }

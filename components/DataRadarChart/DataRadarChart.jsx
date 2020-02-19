@@ -15,7 +15,7 @@ const DataRadarChart = ({ data }) => (
     maxValue={100}
     gridLevels={6}
     enableDotLabel={true}
-    colors={"#D5A890"}
+    colors={"#F33663"}
     dotLabelYOffset={-3}
     gridLabelOffset={9}
   />

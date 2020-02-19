@@ -1,16 +1,30 @@
 import React from "react"
 import styled from "styled-components"
-import Link from "next/link"
 
 import GlobalStyle from "../styles/GlobalStyle"
 import Text from "../components/Text/Text"
+import DataRadarChart from "../components/DataRadarChart/DataRadarChart"
 import TextDocument from "../components/TextDocument/TextDocument"
-import ReactLogo from "../components/ReactLogo"
+import { toolsData, frameworksData, languagesData } from "../data/technologies"
 
 const StyledContainer = styled.main`
   margin: 0 auto;
   max-width: 110rem;
 `
+
+const StyledChartsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: #000;
+`
+
+const StyledChartWrapper = styled.div`
+  margin: 0 auto;
+  height: 32rem;
+  flex: 0 32rem;
+`
+
 const StyledAvatar = styled.div`
   position: relative;
   width: 10rem;
@@ -58,9 +72,17 @@ const StyledTitle = styled(Text)`
   margin: 0;
 `
 
-const StyledReactLogo = styled(ReactLogo)`
-  max-width: 3.6rem;
-  vertical-align: middle;
+const StyledChartsTitle = styled(Text)`
+  color: ${({
+    theme: {
+      colors: { another_special }
+    }
+  }) => another_special};
+  }
+`
+
+const StyledTextDocument = styled(TextDocument)`
+  padding: 0;
 `
 
 export default () => (
@@ -72,27 +94,38 @@ export default () => (
         <StyledHeader>
           <StyledAvatarWrapper>
             <StyledAvatar>
-              <StyledAvatarImg src="/images/background.jpeg" />
+              <StyledAvatarImg src="/images/avatar2.jpeg" />
             </StyledAvatar>
           </StyledAvatarWrapper>
           <StyledTitleSection>
-            <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
-            <Text>Less is more.</Text>
+            <StyledTitle size="large">Eduardo Campos de Souza</StyledTitle>
+            <Text>edusorcerer@gmail.com</Text>
           </StyledTitleSection>
         </StyledHeader>
 
         <Text>
-          Currently building elegant products effortlessly
-          <StyledReactLogo />
-        </Text>
-
-        <Text>
-          You can read more{" "}
-          <Link href="/about">
-            <a>about me</a>
-          </Link>
+          Previously I built interfaces, delivered projects and features for
+          millions of users on e-commerce websites.
         </Text>
       </TextDocument>
+
+      <StyledTextDocument>
+        <StyledChartsTitle size="medium">
+          Favorite Technologies
+        </StyledChartsTitle>
+      </StyledTextDocument>
+
+      <StyledChartsWrapper>
+        <StyledChartWrapper>
+          <DataRadarChart data={languagesData} />
+        </StyledChartWrapper>
+        <StyledChartWrapper>
+          <DataRadarChart data={frameworksData} />
+        </StyledChartWrapper>
+        <StyledChartWrapper>
+          <DataRadarChart data={toolsData} />
+        </StyledChartWrapper>
+      </StyledChartsWrapper>
     </StyledContainer>
   </section>
 )
