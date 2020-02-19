@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 import { ResponsiveRadar } from "@nivo/radar"
+import Text from "../components/Text/Text"
 
 const toolsData = [
   { name: "Git", value: 90 },
@@ -33,95 +34,70 @@ const languagesData = [
   { name: "Lua", value: 50 }
 ]
 
-const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Hermes Regular';
-    src: url('/fonts/Hermes-Regular.ttf'); 
-    font-style: normal;
-    font-display: swap;
-  }
+const GlobalStyle = createGlobalStyle(({ theme }) => {
+  const {
+    settings: {
+      small: { size }
+    },
+    colors: { background, text, special }
+  } = theme
 
-  *, *:before, *:after {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-  }
+  return `
+    @font-face {
+      font-family: 'Hermes Regular';
+      src: url('/fonts/Hermes-Regular.ttf'); 
+      font-style: normal;
+      font-display: swap;
+    }
 
-  html {
-    font-size: 62.5%;
-  }
-  
-  body {
-    font-size: ${({
-      theme: {
-        settings: {
-          s_size: { value }
-        }
-      }
-    }) => value};
-    line-height: ${({
-      theme: {
-        settings: {
-          s_size: { line_height }
-        }
-      }
-    }) => line_height};
+    *, *:before, *:after {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
 
-    margin: 0;
-    font-family: 'Hermes Regular', sans-serif;
-    background: ${({
-      theme: {
-        colors: { background }
-      }
-    }) => background};
-    color: ${({
-      theme: {
-        colors: { text }
-      }
-    }) => text}
-  }
+    html {
+      font-size: 62.5%;
+    }
+    
+    body {
+      font-size: ${size}
+      line-height: ${size}
 
-  html, body {
-    min-height: 100%;
-  }
-  
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+      margin: 0;
+      font-family: 'Hermes Regular', sans-serif;
+      background: ${background};
+      color: ${text}
+    }
 
-  p {
-    margin: 0;
-    margin-bottom: ${({
-      theme: {
-        settings: {
-          s_size: { value }
-        }
-      }
-    }) => value};
-  }
+    html, body {
+      min-height: 100%;
+    }
+    
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-  a {
-    text-decoration: none;
-    cursor: pointer;
-    color: ${({
-      theme: {
-        colors: { special }
-      }
-    }) => special};
-  }
+    p {
+      margin: 0;
+      margin-bottom: ${size};
+    }
 
-  text {
-    fill: ${({
-      theme: {
-        colors: { text }
-      }
-    }) => text}!important;
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      color: ${special};
+    }
 
-  }
+    text {
+      fill: ${text}!important;
 
-`
+    }
+
+  `
+})
 
 const StyledContainer = styled.div`
   margin: 0 auto;
@@ -157,58 +133,26 @@ const DataChart = ({ data }) => (
   />
 )
 
-const StyledChartsTitle = styled.h3`
-  text-align: center;
-  font-size: ${({
-    theme: {
-      settings: {
-        m_size: { value }
-      }
-    }
-  }) => value};
-  line-height: ${({
-    theme: {
-      settings: {
-        m_size: { line_height }
-      }
-    }
-  }) => line_height};
-`
-
-const StyledTitle = styled.h1`
-  text-align: center;
-  font-size: ${({
-    theme: {
-      settings: {
-        l_size: { value }
-      }
-    }
-  }) => value};
-  line-height: ${({
-    theme: {
-      settings: {
-        l_size: { line_height }
-      }
-    }
-  }) => line_height};
-`
-
 const StyledDocumentSection = styled.section`
   padding: 3rem 0 18rem 0;
   margin-left: 6rem;
   max-width: 50rem;
 `
 
-export default props => (
+export default () => (
   <>
-    {console.log(props)}
     <GlobalStyle />
+
     <StyledContainer>
       <StyledDocumentSection>
-        <StyledTitle>Hello World</StyledTitle>
-        <p>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd</p>
-        <StyledChartsTitle>Charts</StyledChartsTitle>
+        <Text size="large">Hello World</Text>
+        <Text size="small">
+          abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd
+        </Text>
       </StyledDocumentSection>
+
+      <Text size="medium">Charts</Text>
+
       <StyledChartsWrapper>
         <StyledChartWrapper>
           <DataChart data={languagesData} />
