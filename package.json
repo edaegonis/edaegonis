@@ -4,17 +4,21 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --collectCoverage=true"
   },
   "dependencies": {
     "@nivo/radar": "^0.61.1",
+    "@testing-library/jest-dom": "^5.1.1",
     "next": "latest",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "styled-components": "^4.0.0"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.8.0"
+    "@testing-library/react": "^9.4.0",
+    "babel-plugin-styled-components": "^1.8.0",
+    "jest": "^25.1.0"
   },
   "license": "ISC"
 }

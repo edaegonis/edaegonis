@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import GlobalStyle from "../GlobalStyle"
+import GlobalStyle from "../styles/GlobalStyle"
 import Text from "../components/Text/Text"
 import DataRadarChart from "../components/DataRadarChart/DataRadarChart"
 import { toolsData, frameworksData, languagesData } from "../data/charts"

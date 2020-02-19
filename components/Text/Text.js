@@ -19,12 +19,14 @@ const StyledText = styled.h1(({ theme, selectedSize }) => {
  * Component responsible for rendering default text attributes and styles according to props
  */
 const Text = ({ size, children }) => (
-  <StyledText selectedSize={size}>{children}</StyledText>
+  <StyledText selectedSize={size} data-testid="text">
+    {children}
+  </StyledText>
 )
 
 Text.propTypes = {
   /** The size of the text to be rendered */
-  size: PropTypes.oneOf(["small", "medium", "large"]),
+  size: PropTypes.oneOf(["small", "medium", "large"]).isRequired,
   /** The children components */
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 }
