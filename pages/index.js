@@ -2,11 +2,6 @@ import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 import { ResponsiveRadar } from "@nivo/radar"
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`
-
 const toolsData = [
   { name: "Git", value: 90 },
   { name: "Webpack", value: 60 },
@@ -39,6 +34,13 @@ const languagesData = [
 ]
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Hermes Regular';
+    src: url('/fonts/Hermes-Regular.ttf'); 
+    font-style: normal;
+    font-display: swap;
+  }
+
   *, *:before, *:after {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -52,9 +54,19 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-size: 1.6rem;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background: #F9F9F9
+    font-family: 'Hermes Regular', sans-serif;
+    background: ${({
+      theme: {
+        colors: { background }
+      }
+    }) => background};
+    color: ${({
+      theme: {
+        colors: { text }
+      }
+    }) => text}
   }
+
   html, body {
     min-height: 100%;
   }
@@ -64,18 +76,27 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
   a {
     text-decoration: none;
-    cursor: pointer
+    cursor: pointer;
+    color: ${({
+      theme: {
+        colors: { special }
+      }
+    }) => special};
   }
 
   a, p, span {
-    color: #363636;
     line-height: 1.5
   }
-  
-  h1, h2, h3 {
-    color: #1d1d1d;
+
+  text {
+    fill: ${({
+      theme: {
+        colors: { text }
+      }
+    }) => text}!important;
   }
 
 `
@@ -89,6 +110,7 @@ const StyledChartsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  color: #000;
 `
 
 const StyledChartWrapper = styled.div`
@@ -107,21 +129,35 @@ const DataChart = ({ data }) => (
     maxValue={100}
     gridLevels={6}
     enableDotLabel={true}
-    colors={["#900990"]}
-    dotLabelYOffset={-6}
-    gridLabelOffset={8}
+    colors={["#F93663"]}
+    dotLabelYOffset={-3}
+    gridLabelOffset={9}
   />
 )
 
 const StyledChartsTitle = styled.h3`
-  color: #900990;
   text-align: center;
+  font-size: ${({
+    theme: {
+      settings: { m_size }
+    }
+  }) => m_size};
+`
+
+const StyledTitle = styled.h1`
+  text-align: center;
+  font-size: ${({
+    theme: {
+      settings: { l_size }
+    }
+  }) => l_size};
 `
 
 export default () => (
   <>
     <GlobalStyle />
     <StyledContainer>
+      <StyledTitle>Hello World</StyledTitle>
       <StyledChartsTitle>Charts</StyledChartsTitle>
       <StyledChartsWrapper>
         <StyledChartWrapper>
