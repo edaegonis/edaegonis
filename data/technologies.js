@@ -8,18 +8,18 @@ const toolsData = [
 ]
 
 const frameworksData = [
-  { name: "Magento 2", value: 65 },
   { name: "React", value: 85 },
-  { name: "ApolloGraphql", value: 65 },
+  { name: "Magento 2", value: 65 },
   { name: "NextJS", value: 70 },
-  { name: "jQuery", value: 80 },
+  { name: "React Native", value: 65 },
+  { name: "ApolloGraphql", value: 65 },
   { name: "Express", value: 60 },
-  { name: "React Native", value: 65 }
+  { name: "jQuery", value: 80 }
 ]
 
 const languagesData = [
-  { name: "HTML", value: 85 },
   { name: "CSS(SASS)", value: 85 },
+  { name: "HTML", value: 85 },
   { name: "SQL", value: 50 },
   { name: "PHP", value: 70 },
   { name: "Javascript", value: 90 },

@@ -32,12 +32,13 @@ const StyledTitle = styled(Text)`
 `
 
 const StyledChartsTitle = styled(Text)`
+  margin-bottom: 0;
+  text-align: center;
   color: ${({
     theme: {
       colors: { another_special }
     }
   }) => another_special};
-  }
 `
 
 const StyledTextDocument = styled(TextDocument)`
@@ -59,7 +60,7 @@ export default () => (
         </Header>
 
         <Text>
-          Previously I built interfaces, delivered projects and features for
+          Previously I built interfaces and delivered projects and features for
           millions of users on e-commerce websites.
         </Text>
       </TextDocument>
