@@ -40,7 +40,6 @@ export default () => (
         <Text>
           Currently building elegant products effortlessly
           <StyledReactLogo />
-          abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd
         </Text>
 
         <Text>
