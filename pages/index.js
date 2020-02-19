@@ -52,7 +52,21 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    font-size: 1.6rem;
+    font-size: ${({
+      theme: {
+        settings: {
+          s_size: { value }
+        }
+      }
+    }) => value};
+    line-height: ${({
+      theme: {
+        settings: {
+          s_size: { line_height }
+        }
+      }
+    }) => line_height};
+
     margin: 0;
     font-family: 'Hermes Regular', sans-serif;
     background: ${({
@@ -77,6 +91,17 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  p {
+    margin: 0;
+    margin-bottom: ${({
+      theme: {
+        settings: {
+          s_size: { value }
+        }
+      }
+    }) => value};
+  }
+
   a {
     text-decoration: none;
     cursor: pointer;
@@ -87,16 +112,13 @@ const GlobalStyle = createGlobalStyle`
     }) => special};
   }
 
-  a, p, span {
-    line-height: 1.5
-  }
-
   text {
     fill: ${({
       theme: {
         colors: { text }
       }
     }) => text}!important;
+
   }
 
 `
@@ -129,7 +151,7 @@ const DataChart = ({ data }) => (
     maxValue={100}
     gridLevels={6}
     enableDotLabel={true}
-    colors={["#F93663"]}
+    colors={"#D5A890"}
     dotLabelYOffset={-3}
     gridLabelOffset={9}
   />
@@ -139,26 +161,54 @@ const StyledChartsTitle = styled.h3`
   text-align: center;
   font-size: ${({
     theme: {
-      settings: { m_size }
+      settings: {
+        m_size: { value }
+      }
     }
-  }) => m_size};
+  }) => value};
+  line-height: ${({
+    theme: {
+      settings: {
+        m_size: { line_height }
+      }
+    }
+  }) => line_height};
 `
 
 const StyledTitle = styled.h1`
   text-align: center;
   font-size: ${({
     theme: {
-      settings: { l_size }
+      settings: {
+        l_size: { value }
+      }
     }
-  }) => l_size};
+  }) => value};
+  line-height: ${({
+    theme: {
+      settings: {
+        l_size: { line_height }
+      }
+    }
+  }) => line_height};
 `
 
-export default () => (
+const StyledDocumentSection = styled.section`
+  padding: 3rem 0 18rem 0;
+  margin-left: 6rem;
+  max-width: 50rem;
+`
+
+export default props => (
   <>
+    {console.log(props)}
     <GlobalStyle />
     <StyledContainer>
-      <StyledTitle>Hello World</StyledTitle>
-      <StyledChartsTitle>Charts</StyledChartsTitle>
+      <StyledDocumentSection>
+        <StyledTitle>Hello World</StyledTitle>
+        <p>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd</p>
+        <StyledChartsTitle>Charts</StyledChartsTitle>
+      </StyledDocumentSection>
       <StyledChartsWrapper>
         <StyledChartWrapper>
           <DataChart data={languagesData} />
