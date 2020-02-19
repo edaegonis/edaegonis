@@ -6,12 +6,14 @@ const StyledText = styled.p(({ theme, selectedSize }) => {
   const {
     settings: {
       [selectedSize]: { size, line_height }
-    }
+    },
+    colors: { special }
   } = theme
 
   return `
     font-size: ${size};
     line-height: ${line_height};
+    color: ${selectedSize === "large" ? special : "inherit"}
   `
 })
 
