@@ -6,7 +6,7 @@ import Text from "../components/Text/Text"
 import DataRadarChart from "../components/DataRadarChart/DataRadarChart"
 import { toolsData, frameworksData, languagesData } from "../data/technologies"
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.main`
   margin: 0 auto;
   max-width: 110rem;
 `
@@ -24,23 +24,78 @@ const StyledChartWrapper = styled.div`
   flex: 0 32rem;
 `
 
-const StyledDocumentSection = styled.section`
-  padding: 3rem 0 18rem 0;
-  margin-left: 6rem;
-  max-width: 50rem;
+const StyledTextDocument = styled.div`
+  padding: 8rem 0 18rem 0;
+  margin-left: 3rem;
+  max-width: 42rem;
+`
+const StyledAvatar = styled.div`
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+`
+
+const StyledHeader = styled.header`
+  display: flex;
+  margin-bottom: ${({
+    theme: {
+      settings: {
+        large: { size }
+      }
+    }
+  }) => size};
+`
+
+const StyledTitleSection = styled.section`
+  flex: 1 auto;
+`
+
+const StyledAvatarWrapper = styled.div`
+  flex: 1 0;
+  margin-right: ${({
+    theme: {
+      settings: {
+        small: { size }
+      }
+    }
+  }) => size};
+  align-items: center;
+`
+
+const StyledAvatarImg = styled.img`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+`
+const StyledTitle = styled(Text)`
+  margin: 0;
 `
 
 export default () => (
-  <>
+  <section>
     <GlobalStyle />
 
     <StyledContainer>
-      <StyledDocumentSection>
-        <Text size="large">Eduardo Campos de Souza</Text>
-        <Text size="small">
-          abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd
-        </Text>
-      </StyledDocumentSection>
+      <StyledTextDocument>
+        <StyledHeader>
+          <StyledAvatarWrapper>
+            <StyledAvatar>
+              <StyledAvatarImg src="/images/avatar2.jpeg" />
+            </StyledAvatar>
+          </StyledAvatarWrapper>
+          <StyledTitleSection>
+            <StyledTitle size="large">Eduardo Campos de Souza</StyledTitle>
+            <Text>edusorcerer@gmail.com</Text>
+          </StyledTitleSection>
+        </StyledHeader>
+        <Text>Creating things</Text>
+        <Text>abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd</Text>
+      </StyledTextDocument>
 
       <Text size="medium">Favorite Development Technologies</Text>
 
@@ -56,5 +111,5 @@ export default () => (
         </StyledChartWrapper>
       </StyledChartsWrapper>
     </StyledContainer>
-  </>
+  </section>
 )
