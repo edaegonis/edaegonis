@@ -10,7 +10,6 @@ const StyledText = styled.h1(({ theme, selectedSize }) => {
   } = theme
 
   return `
-    text-align: center;
     font-size: ${size};
     line-height: ${line_height};
   `
