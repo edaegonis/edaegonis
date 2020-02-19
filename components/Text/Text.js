@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 
 const StyledText = styled.h1(({ theme, selectedSize }) => {
   const {
@@ -21,5 +22,12 @@ const StyledText = styled.h1(({ theme, selectedSize }) => {
 const Text = ({ size, children }) => (
   <StyledText selectedSize={size}>{children}</StyledText>
 )
+
+Text.propTypes = {
+  /** The size of the text to be rendered */
+  size: PropTypes.oneOf(["small", "medium", "large"]),
+  /** The children components */
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+}
 
 export default Text
