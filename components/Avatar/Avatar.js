@@ -1,26 +1,27 @@
 import React from "react"
 import styled from "styled-components"
 
-const StyledAvatarWrapper = styled.div`
-  flex: 1 100%;
-
-  margin-right: ${({
-    theme: {
-      settings: {
-        small: { size }
-      }
+const StyledAvatarWrapper = styled.div(({ theme }) => {
+  const {
+    settings: {
+      desktop_breakpoint,
+      small: { size }
     }
-  }) => size};
+  } = theme
+
+  return `
+  flex: 1 100%;
+  margin-right: 0;
+
   align-items: center;
 
-  @media (min-width: ${({
-      theme: {
-        settings: { desktop_breakpoint }
-      }
-    }) => desktop_breakpoint}) {
+  @media (min-width: ${desktop_breakpoint}) {
     flex: 1 0;
+
+    margin-right: ${size};
   }
 `
+})
 
 const StyledAvatar = styled.div`
   position: relative;

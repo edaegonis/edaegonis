@@ -23,31 +23,35 @@ const StyledChartWrapper = styled.div`
   flex: 0 32rem;
 `
 
-const StyledTitleSection = styled.section`
+const StyledTitleSection = styled.section(({ theme }) => {
+  const {
+    settings: { desktop_breakpoint }
+  } = theme
+
+  return `
   flex: 1 auto;
 
-  @media (min-width: ${({
-      theme: {
-        settings: { desktop_breakpoint }
-      }
-    }) => desktop_breakpoint}) {
+  @media (min-width: ${desktop_breakpoint}) {
     flex: 1 auto;
   }
 `
+})
 
 const StyledTitle = styled(Text)`
   margin: 0;
 `
 
-const StyledChartsTitle = styled(Text)`
+const StyledChartsTitle = styled(Text)(({ theme }) => {
+  const {
+    colors: { another_special }
+  } = theme
+
+  return `
   margin-bottom: 0;
   text-align: center;
-  color: ${({
-    theme: {
-      colors: { another_special }
-    }
-  }) => another_special};
+  color: ${another_special};
 `
+})
 
 const StyledTextDocument = styled(TextDocument)`
   padding: 0;
