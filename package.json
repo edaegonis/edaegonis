@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build && yarn build:styleguide",
-    "build:styleguide": "cd styleguide && yarn styleguide:build",
+    "build:styleguide": "cd styleguide && yarn && yarn styleguide:build",
     "start": "next start",
     "test": "jest --collectCoverage=true --watch"
   },
