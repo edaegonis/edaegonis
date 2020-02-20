@@ -6,7 +6,7 @@ const StyledInput = styled.input(({ theme, selectedSize }) => {
   const {
     color: { base, link },
     settings: {
-      [selectedSize]: { size }
+      [selectedSize]: { size, line_height }
     }
   } = theme
   return `
@@ -15,7 +15,8 @@ const StyledInput = styled.input(({ theme, selectedSize }) => {
     border: none;
     padding: .6rem 0;
     border-bottom: 1px solid ${link}
-    border-left: 1px solid ${link}
+    font-size: ${size};
+    line-height: ${line_height};
     text-indent: 1rem;
     color: ${base};
     font-family: 'Hermes Regular',sans-serif;
@@ -23,7 +24,6 @@ const StyledInput = styled.input(({ theme, selectedSize }) => {
 
     &:focus {
       text-indent: 0;
-      border-left: none;
     }
     `
 })

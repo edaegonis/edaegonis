@@ -6,7 +6,9 @@ module.exports = {
     link: "#F33663",
     /** For styleguide */
     sidebarBackground: "#091836",
-    linkHover: "#F33663"
+    linkHover: "#F33663",
+    light: "#909090",
+    codeBackground: "#061229"
   },
   settings: {
     small: { size: "1.6rem", line_height: "1.92" },
