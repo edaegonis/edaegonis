@@ -27,7 +27,7 @@ const StyledAvatar = styled.div`
   width: 10rem;
   height: 10rem;
   margin: 0 auto;
-  border-radius: 50%;
+  border-radius: ${({ type }) => (type === "circular" ? "50%" : 0)};
   overflow: hidden;
 `
 
@@ -39,12 +39,16 @@ const StyledAvatarImg = styled.img`
   top: 0;
 `
 
-const Avatar = ({ src }) => (
+const Avatar = ({ src, type }) => (
   <StyledAvatarWrapper>
-    <StyledAvatar>
+    <StyledAvatar type={type}>
       <StyledAvatarImg src={src} />
     </StyledAvatar>
   </StyledAvatarWrapper>
 )
+
+Avatar.defaultProps = {
+  type: "circular"
+}
 
 export default Avatar

@@ -25,6 +25,14 @@ const StyledChartWrapper = styled.div`
 
 const StyledTitleSection = styled.section`
   flex: 1 auto;
+
+  @media (min-width: ${({
+      theme: {
+        settings: { desktop_breakpoint }
+      }
+    }) => desktop_breakpoint}) {
+    flex: 1 auto;
+  }
 `
 
 const StyledTitle = styled(Text)`
@@ -60,8 +68,8 @@ export default () => (
         </Header>
 
         <Text>
-          Previously I built interfaces and delivered projects and features for
-          millions of users on e-commerce websites.
+          Previously I built interfaces and delivered projects for millions of
+          users on e-commerce websites.
         </Text>
       </TextDocument>
 

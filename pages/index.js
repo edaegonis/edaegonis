@@ -12,6 +12,14 @@ import Header from "../components/Header"
 
 const StyledTitleSection = styled.section`
   flex: 1 100%;
+
+  @media (min-width: ${({
+      theme: {
+        settings: { desktop_breakpoint }
+      }
+    }) => desktop_breakpoint}) {
+    flex: 1 auto;
+  }
 `
 
 const StyledTitle = styled(Text)`
@@ -30,7 +38,7 @@ export default () => (
     <Container>
       <TextDocument>
         <Header>
-          <Avatar src="/images/background.jpeg" />
+          <Avatar type="squared" src="/images/background.jpeg" />
           <StyledTitleSection>
             <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
             <Text>Less is more.</Text>
