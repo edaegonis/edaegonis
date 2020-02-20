@@ -7,7 +7,7 @@ const StyledText = styled.p(({ theme, selectedSize }) => {
     settings: {
       [selectedSize]: { size, line_height }
     },
-    colors: { special }
+    color: { special }
   } = theme
 
   return `

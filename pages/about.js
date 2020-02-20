@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 
-import GlobalStyle from "../styles/GlobalStyle"
 import Text from "../components/Text/Text"
 import DataRadarChart from "../components/DataRadarChart/DataRadarChart"
 import TextDocument from "../components/TextDocument/TextDocument"
@@ -43,13 +42,13 @@ const StyledTitle = styled(Text)`
 
 const StyledChartsTitle = styled(Text)(({ theme }) => {
   const {
-    colors: { another_special }
+    color: { link }
   } = theme
 
   return `
   margin-bottom: 0;
   text-align: center;
-  color: ${another_special};
+  color: ${link};
 `
 })
 
@@ -72,6 +71,14 @@ export default () => (
         <Text>
           Previously I built interfaces and delivered projects for millions of
           users on e-commerce websites.
+        </Text>
+        <Text>
+          On this website, I'm using{" "}
+          <a href="https://react-styleguidist.js.org/" target="_blank">
+            react-styleguidist
+          </a>{" "}
+          to be able to develop components isolated from the actual webpage.
+          Check out the library <a href="/styleguide">here</a>
         </Text>
       </TextDocument>
 

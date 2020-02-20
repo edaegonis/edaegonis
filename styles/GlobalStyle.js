@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
     settings: {
       small: { size }
     },
-    colors: { background, text, another_special }
+    color: { baseBackground, base, link }
   } = theme
 
   return `
@@ -29,11 +29,10 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
       body {
         font-size: ${size}
         line-height: ${size}
-  
         margin: 0;
         font-family: 'Hermes Regular', sans-serif;
-        background: ${background};
-        color: ${text}
+        background: ${baseBackground};
+        color: ${base}
       }
   
       html, body {
@@ -54,12 +53,11 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
       a {
         text-decoration: none;
         cursor: pointer;
-        color: ${another_special};
+        color: ${link};
       }
   
       text {
-        fill: ${text}!important;
-  
+        fill: ${base}!important;
       }
   
     `

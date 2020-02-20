@@ -14,5 +14,6 @@ module.exports = {
       chunkFilename: "[name].js"
     }
     return config
-  }
+  },
+  theme: "../styles/theme.js"
 }

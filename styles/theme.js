@@ -1,9 +1,12 @@
-export const theme = {
-  colors: {
-    background: "#091836",
-    text: "#F3F3F3",
+module.exports = {
+  color: {
+    baseBackground: "#091836",
+    base: "#F3F3F3",
     special: "#D5A890",
-    another_special: "#F33663"
+    link: "#F33663",
+    /** For styleguide */
+    sidebarBackground: "#091836",
+    linkHover: "#F33663"
   },
   settings: {
     small: { size: "1.6rem", line_height: "1.92" },
