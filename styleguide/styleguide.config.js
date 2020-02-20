@@ -9,8 +9,8 @@ module.exports = {
   /** This is necessary because styleguide overrides any webpack's output config */
   dangerouslyUpdateWebpackConfig: config => {
     config.output = {
-      path: `${path.resolve(__dirname)}/build`,
-      filename: "bundle.js",
+      path: path.join(__dirname, `../public/build`),
+      filename: "styleguide.js",
       chunkFilename: "[name].js"
     }
     return config
