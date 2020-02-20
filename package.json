@@ -25,5 +25,11 @@
     "babel-plugin-styled-components": "^1.8.0",
     "jest": "^25.1.0"
   },
+  "browserslist": [
+    ">1%",
+    "last 1 version",
+    "Firefox ESR",
+    "not dead"
+  ],
   "license": "ISC"
 }
