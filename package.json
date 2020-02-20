@@ -15,6 +15,7 @@
     "@nivo/radar": "^0.61.1",
     "@testing-library/jest-dom": "^5.1.1",
     "next": "latest",
+    "next-ga": "^2.3.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "styled-components": "^4.0.0"
