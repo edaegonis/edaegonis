@@ -36,8 +36,6 @@ export default () => {
 
   return (
     <section>
-      <GlobalStyle />
-
       <Container>
         <TextDocument>
           <Header>

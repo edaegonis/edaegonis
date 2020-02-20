@@ -1,0 +1,5 @@
+Simple input:
+
+```js
+<Input />
+```

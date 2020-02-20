@@ -59,8 +59,6 @@ const StyledTextDocument = styled(TextDocument)`
 
 export default () => (
   <section>
-    <GlobalStyle />
-
     <Container>
       <TextDocument>
         <Header>
