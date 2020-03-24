@@ -73,7 +73,7 @@ export default () => (
 
         {/* {!isTyping ? "You can read more " : "Would you tell me your name? "} */}
         <Text>
-          You want{" "}
+          do you want{" "}
           <Link href="/about">
             <a>more?</a>
           </Link>
