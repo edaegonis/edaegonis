@@ -6,8 +6,8 @@ import Text from "../components/Text/Text"
 import TextDocument from "../components/TextDocument/TextDocument"
 import Container from "../components/Container"
 import ReactLogo from "../components/ReactLogo"
-import Avatar from "../components/Avatar/Avatar"
 import Header from "../components/Header"
+import Logo from "../components/Logo"
 
 const StyledTitleSection = styled.section`
   flex: 1 100%;
@@ -30,12 +30,36 @@ const StyledReactLogo = styled(ReactLogo)`
   vertical-align: middle;
 `
 
+const StyledAvatarWrapper = styled.div(({ theme }) => {
+  const {
+    settings: {
+      desktop_breakpoint,
+      small: { size }
+    }
+  } = theme
+
+  return `
+  flex: 1 100%;
+  margin-right: 0;
+
+  align-items: center;
+
+  @media (min-width: ${desktop_breakpoint}) {
+    flex: 1 0;
+
+    margin-right: ${size};
+  }
+`
+})
+
 export default () => (
   <section>
     <Container>
       <TextDocument>
         <Header>
-          <Avatar type="squared" src="/images/background.jpeg" />
+          <StyledAvatarWrapper>
+            <Logo />
+          </StyledAvatarWrapper>
           <StyledTitleSection>
             <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
             <Text>Less is more.</Text>
