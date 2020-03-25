@@ -9,7 +9,7 @@ function Logo() {
       fill="none"
       viewBox="0 0 101 101"
     >
-      <circle cx="50.5" cy="50.5" r="49.5" stroke="#F3F3F3"></circle>
+      <circle cx="50.5" cy="50.5" r="49.5" stroke="#F33663"></circle>
       <circle cx="74" cy="43" r="24.5" stroke="#F33663"></circle>
       <circle cx="27" cy="43" r="24.5" stroke="#F33663"></circle>
       <circle cx="36" cy="70" r="24.5" stroke="#F33663"></circle>

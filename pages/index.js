@@ -8,6 +8,7 @@ import Container from "../components/Container"
 import ReactLogo from "../components/ReactLogo"
 import Header from "../components/Header"
 import Logo from "../components/Logo"
+import { ParticlesField } from "../components/ParticlesField"
 
 const StyledTitleSection = styled.section`
   flex: 1 100%;
@@ -52,33 +53,51 @@ const StyledAvatarWrapper = styled.div(({ theme }) => {
 `
 })
 
+const StyledAbsoluteWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+`
+
+const StyledContentWrapper = styled(StyledAbsoluteWrapper)`
+  z-index: 2;
+`
+
 export default () => (
   <section>
-    <Container>
-      <TextDocument>
-        <Header>
-          <StyledAvatarWrapper>
-            <Logo />
-          </StyledAvatarWrapper>
-          <StyledTitleSection>
-            <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
-            <Text>Less is more.</Text>
-          </StyledTitleSection>
-        </Header>
+    <StyledAbsoluteWrapper>
+      <ParticlesField />
+    </StyledAbsoluteWrapper>
+    <StyledContentWrapper>
+      <Container>
+        <TextDocument>
+          <Header>
+            <StyledAvatarWrapper>
+              <Logo />
+            </StyledAvatarWrapper>
+            <StyledTitleSection>
+              <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
+              <Text>Less is more.</Text>
+            </StyledTitleSection>
+          </Header>
 
-        <Text>
-          Currently building elegant products effortlessly
-          <StyledReactLogo />
-        </Text>
+          <Text>
+            Currently building elegant products effortlessly
+            <StyledReactLogo />
+          </Text>
 
-        {/* {!isTyping ? "You can read more " : "Would you tell me your name? "} */}
-        <Text>
-          do you want{" "}
-          <Link href="/about">
-            <a>more?</a>
-          </Link>
-        </Text>
-      </TextDocument>
-    </Container>
+          {/* {!isTyping ? "You can read more " : "Would you tell me your name? "} */}
+          <Text>
+            do you want{" "}
+            <Link href="/about">
+              <a>more?</a>
+            </Link>
+          </Text>
+        </TextDocument>
+      </Container>
+    </StyledContentWrapper>
   </section>
 )
