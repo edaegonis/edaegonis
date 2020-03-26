@@ -4,26 +4,19 @@ import Text from "../../components/atoms/Text/Text"
 import DataRadarChart from "../../components/atoms/DataRadarChart/DataRadarChart"
 import TextDocument from "../../components/atoms/TextDocument/TextDocument"
 import Container from "../../components/atoms/Container"
-import Avatar from "../../components/atoms/Avatar/Avatar"
 import {
   toolsData,
   frameworksData,
   languagesData
 } from "../../lib/technologies"
-import Header from "../../components/atoms/Header"
 import { randomQuantityOptions } from "../../lib/random"
 import {
   StyledChartsWrapper,
   StyledChartWrapper,
-  StyledTitleSection,
-  StyledTitle,
   StyledChartsTitle,
-  StyledTextDocument,
-  StyledHeaderInfo,
-  StyledNav,
-  StyledNavItem
+  StyledTextDocument
 } from "./styles"
-import { ActiveLink } from "../../components/atoms/ActiveLink/ActiveLink"
+import AboutPageHeader from "../../components/molecules/AboutPageHeader/AboutPageHeader"
 
 export default () => {
   const [randomQuantity, setRandomQuantity] = useState("quadrillions")
@@ -38,25 +31,7 @@ export default () => {
     <section>
       <Container>
         <TextDocument>
-          <Header>
-            <StyledHeaderInfo>
-              <Avatar src="/images/avatar2.jpeg" />
-              <StyledTitleSection>
-                <StyledTitle size="large">you see eduardo</StyledTitle>
-                <Text>an adept software developer</Text>
-              </StyledTitleSection>
-            </StyledHeaderInfo>
-            <StyledNav>
-              <ActiveLink href="/about">
-                <StyledNavItem>index</StyledNavItem>
-              </ActiveLink>
-              <ActiveLink href="/about/story">
-                <StyledNavItem>story</StyledNavItem>
-              </ActiveLink>
-              <StyledNavItem>works</StyledNavItem>
-              <StyledNavItem>texts</StyledNavItem>
-            </StyledNav>
-          </Header>
+          <AboutPageHeader />
 
           <Text>
             Previously I built interfaces and delivered projects for{" "}
