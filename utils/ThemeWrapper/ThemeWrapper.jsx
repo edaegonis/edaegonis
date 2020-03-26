@@ -1,17 +1,23 @@
-import React from "react"
+import React, { useState } from "react"
 import { ThemeProvider } from "styled-components"
 
+import { lightTheme } from "../../styles/theme-light"
+import { darkTheme } from "../../styles/theme-dark"
 import GlobalStyle from "../../styles/GlobalStyle"
 
 /**
  * Will wrap children components into a ThemeProvider
  */
-const ThemeWrapper = ({ theme, children }) => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyle />
+const ThemeWrapper = ({ children }) => {
+  const [isDarkTheme, setIsDarkTheme] = useState(false)
 
-    {children}
-  </ThemeProvider>
-)
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <GlobalStyle />
+
+      {children}
+    </ThemeProvider>
+  )
+}
 
 export default ThemeWrapper
