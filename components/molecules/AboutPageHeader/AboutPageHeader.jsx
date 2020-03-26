@@ -16,7 +16,7 @@ import {
 const AboutPageHeader = () => (
   <Header>
     <StyledHeaderInfo>
-      <Avatar src="/images/avatar2.jpeg" />
+      <Avatar src="/images/avatar2.jpg" />
       <StyledTitleSection>
         <StyledTitle size="large">you see eduardo</StyledTitle>
         <Text>an adept software developer</Text>
