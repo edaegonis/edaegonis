@@ -3,7 +3,7 @@ import { withTheme } from "styled-components"
 
 function Moon({ theme }) {
   const {
-    color: { base }
+    color: { baseBackground }
   } = theme
 
   return (
@@ -15,7 +15,7 @@ function Moon({ theme }) {
       viewBox="0 0 24 24"
     >
       <path
-        stroke={base}
+        stroke={baseBackground}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"

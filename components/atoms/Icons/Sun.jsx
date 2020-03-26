@@ -3,7 +3,7 @@ import { withTheme } from "styled-components"
 
 function Sun({ theme }) {
   const {
-    color: { base }
+    color: { baseBackground }
   } = theme
   return (
     <svg
@@ -14,7 +14,7 @@ function Sun({ theme }) {
       viewBox="0 0 24 24"
     >
       <path
-        stroke={base}
+        stroke={baseBackground}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
