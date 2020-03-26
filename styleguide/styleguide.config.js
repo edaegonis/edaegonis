@@ -15,5 +15,5 @@ module.exports = {
     }
     return config
   },
-  theme: "../styles/theme.js"
+  theme: "../styles/theme-dark.js"
 }
