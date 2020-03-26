@@ -1,6 +1,11 @@
 import React from "react"
+import { withTheme } from "styled-components"
 
-function Moon() {
+function Moon({ theme }) {
+  const {
+    color: { base }
+  } = theme
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +15,7 @@ function Moon() {
       viewBox="0 0 24 24"
     >
       <path
-        stroke="#F3F3F3"
+        stroke={base}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
@@ -20,4 +25,4 @@ function Moon() {
   )
 }
 
-export default Moon
+export default withTheme(Moon)

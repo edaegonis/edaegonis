@@ -1,6 +1,10 @@
 import React from "react"
+import { withTheme } from "styled-components"
 
-function Sun() {
+function Sun({ theme }) {
+  const {
+    color: { base }
+  } = theme
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +14,7 @@ function Sun() {
       viewBox="0 0 24 24"
     >
       <path
-        stroke="#F3F3F3"
+        stroke={base}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
@@ -20,4 +24,4 @@ function Sun() {
   )
 }
 
-export default Sun
+export default withTheme(Sun)
