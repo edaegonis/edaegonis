@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Link from "next/link"
 
 import Text from "../../components/Text/Text"
 import DataRadarChart from "../../components/DataRadarChart/DataRadarChart"
@@ -23,7 +24,6 @@ import {
   StyledNav,
   StyledNavItem
 } from "./styles"
-import Link from "next/link"
 
 export default () => {
   const [randomQuantity, setRandomQuantity] = useState("quadrillions")
@@ -47,10 +47,10 @@ export default () => {
               </StyledTitleSection>
             </StyledHeaderInfo>
             <StyledNav>
-              <StyledNavItem>index</StyledNavItem>
-              <Link href="/about/story">
-                <StyledNavItem>story</StyledNavItem>
+              <Link href="/about">
+                <StyledNavItem>index</StyledNavItem>
               </Link>
+              <StyledNavItem>story</StyledNavItem>
               <StyledNavItem>works</StyledNavItem>
               <StyledNavItem>texts</StyledNavItem>
             </StyledNav>
