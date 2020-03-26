@@ -63,17 +63,22 @@ export const StyledNav = styled.nav`
   justify-content: center;
 `
 
-export const StyledNavItem = styled.a`
+export const StyledNavItem = styled(Text)(({ active, theme }) => {
+  const {
+    color: { link }
+  } = theme
+
+  return `
   margin: 0 0.8rem;
   position: relative;
   cursor: pointer;
   transition: color 0.2s linear, opacity 0.2s linear;
-  font-weight: bold;
+  color: ${link}
 
   &:hover {
     opacity: 0.8;
     &::before {
-      background-color: #000;
+      background-color:${link};
     }
   }
 
@@ -85,6 +90,7 @@ export const StyledNavItem = styled.a`
     bottom: 0;
     right: 0;
     transition: background-color 0.4s linear;
-    background-color: ${({ active }) => (active ? "#000" : "transparent")};
+    background-color: ${active ? link : "transparent"};
   }
 `
+})

@@ -42,7 +42,9 @@ export default () => {
               <ActiveLink href="/about">
                 <StyledNavItem>index</StyledNavItem>
               </ActiveLink>
-              <StyledNavItem>story</StyledNavItem>
+              <ActiveLink href="/about/story">
+                <StyledNavItem>story</StyledNavItem>
+              </ActiveLink>
               <StyledNavItem>works</StyledNavItem>
               <StyledNavItem>texts</StyledNavItem>
             </StyledNav>

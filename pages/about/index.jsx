@@ -23,7 +23,7 @@ import {
   StyledNav,
   StyledNavItem
 } from "./styles"
-import Link from "next/link"
+import { ActiveLink } from "../../components/ActiveLink/ActiveLink"
 
 export default () => {
   const [randomQuantity, setRandomQuantity] = useState("quadrillions")
@@ -47,10 +47,12 @@ export default () => {
               </StyledTitleSection>
             </StyledHeaderInfo>
             <StyledNav>
-              <StyledNavItem>index</StyledNavItem>
-              <Link href="/about/story">
+              <ActiveLink href="/about">
+                <StyledNavItem>index</StyledNavItem>
+              </ActiveLink>
+              <ActiveLink href="/about/story">
                 <StyledNavItem>story</StyledNavItem>
-              </Link>
+              </ActiveLink>
               <StyledNavItem>works</StyledNavItem>
               <StyledNavItem>texts</StyledNavItem>
             </StyledNav>
