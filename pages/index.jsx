@@ -10,21 +10,22 @@ import Header from "../components/atoms/Header"
 import Logo from "../components/atoms/Logo"
 import { ParticlesField } from "../components/atoms/ParticlesField"
 
-const StyledTitleSection = styled.section`
-  flex: 1 100%;
+import { StyledTitle, StyledHeaderInfo } from "../styles/about"
 
-  @media (min-width: ${({
-      theme: {
-        settings: { desktop_breakpoint }
-      }
-    }) => desktop_breakpoint}) {
-    flex: 1 auto;
-  }
-`
+export const StyledTitleSection = styled.section(({ theme }) => {
+  const {
+    settings: { desktop_breakpoint }
+  } = theme
 
-const StyledTitle = styled(Text)`
-  margin: 0;
-`
+  return `
+  flex: 1 auto;
+  text-align: center;
+
+    @media (min-width: ${desktop_breakpoint}) {
+      text-align: left;
+    }
+  `
+})
 
 const StyledReactLogo = styled(ReactLogo)`
   max-width: 3.6rem;
@@ -40,17 +41,17 @@ const StyledAvatarWrapper = styled.div(({ theme }) => {
   } = theme
 
   return `
-  flex: 1 100%;
-  margin-right: 0;
+    flex: 1 100%;
+    margin-right: 0;
+    align-items: center;
+    text-align: center;
 
-  align-items: center;
-
-  @media (min-width: ${desktop_breakpoint}) {
-    flex: 1 0;
-
-    margin-right: ${size};
-  }
-`
+    @media (min-width: ${desktop_breakpoint}) {
+      flex: 1 0;
+      margin-right: ${size};
+      text-align: left;
+    }
+  `
 })
 
 const StyledAbsoluteWrapper = styled.div`
@@ -75,13 +76,15 @@ export default () => (
       <Container>
         <TextDocument>
           <Header>
-            <StyledAvatarWrapper>
-              <Logo />
-            </StyledAvatarWrapper>
-            <StyledTitleSection>
-              <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
-              <Text>Scalable high performing technology.</Text>
-            </StyledTitleSection>
+            <StyledHeaderInfo>
+              <StyledAvatarWrapper>
+                <Logo />
+              </StyledAvatarWrapper>
+              <StyledTitleSection>
+                <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
+                <Text>Scalable high performing technology.</Text>
+              </StyledTitleSection>
+            </StyledHeaderInfo>
           </Header>
 
           <Text>

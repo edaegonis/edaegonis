@@ -16,20 +16,10 @@ export const StyledChartWrapper = styled.div`
   flex: 0 32rem;
 `
 
-export const StyledTitleSection = styled.section(({ theme }) => {
-  const {
-    settings: { desktop_breakpoint }
-  } = theme
-
-  return `
+export const StyledTitleSection = styled.section`
   flex: 1 auto;
   text-align: left;
-
-  @media (min-width: ${desktop_breakpoint}) {
-    flex: 1 auto;
-  }
 `
-})
 
 export const StyledTitle = styled(Text)`
   margin: 0;
@@ -53,6 +43,7 @@ export const StyledTextDocument = styled(TextDocument)`
 
 export const StyledHeaderInfo = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 1.6rem;
   align-items: center;
 `
