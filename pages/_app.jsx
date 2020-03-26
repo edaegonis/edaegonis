@@ -3,7 +3,7 @@ import Router from "next/router"
 import withGA from "next-ga"
 import React from "react"
 
-import ThemeWrapper from "../components/ThemeWrapper/ThemeWrapper"
+import ThemeWrapper from "../components/atoms/ThemeWrapper/ThemeWrapper"
 
 class MyApp extends App {
   render() {

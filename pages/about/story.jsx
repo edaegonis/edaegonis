@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import Link from "next/link"
 
-import Text from "../../components/Text/Text"
-import TextDocument from "../../components/TextDocument/TextDocument"
-import Container from "../../components/Container"
-import Avatar from "../../components/Avatar/Avatar"
+import Text from "../../components/atoms/Text/Text"
+import TextDocument from "../../components/atoms/TextDocument/TextDocument"
+import Container from "../../components/atoms/Container"
+import Avatar from "../../components/atoms/Avatar/Avatar"
 
-import Header from "../../components/Header"
+import Header from "../../components/atoms/Header"
 import { randomQuantityOptions } from "../../lib/random"
 import {
   StyledTitleSection,
@@ -15,7 +15,7 @@ import {
   StyledNav,
   StyledNavItem
 } from "./styles"
-import { ActiveLink } from "../../components/ActiveLink/ActiveLink"
+import { ActiveLink } from "../../components/atoms/ActiveLink/ActiveLink"
 
 export default () => {
   const [randomQuantity, setRandomQuantity] = useState("quadrillions")

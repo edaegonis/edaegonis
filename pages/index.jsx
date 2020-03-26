@@ -2,13 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import Link from "next/link"
 
-import Text from "../components/Text/Text"
-import TextDocument from "../components/TextDocument/TextDocument"
-import Container from "../components/Container"
-import ReactLogo from "../components/ReactLogo"
-import Header from "../components/Header"
-import Logo from "../components/Logo"
-import { ParticlesField } from "../components/ParticlesField"
+import Text from "../components/atoms/Text/Text"
+import TextDocument from "../components/atoms/TextDocument/TextDocument"
+import Container from "../components/atoms/Container"
+import ReactLogo from "../components/atoms/ReactLogo"
+import Header from "../components/atoms/Header"
+import Logo from "../components/atoms/Logo"
+import { ParticlesField } from "../components/atoms/ParticlesField"
 
 const StyledTitleSection = styled.section`
   flex: 1 100%;

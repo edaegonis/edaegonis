@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
-import Text from "../../components/Text/Text"
-import TextDocument from "../../components/TextDocument/TextDocument"
+import Text from "../../components/atoms/Text/Text"
+import TextDocument from "../../components/atoms/TextDocument/TextDocument"
 
 export const StyledChartsWrapper = styled.div`
   display: flex;
