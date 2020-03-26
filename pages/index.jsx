@@ -5,7 +5,7 @@ import Text from "../components/atoms/Text/Text"
 import TextDocument from "../components/atoms/TextDocument/TextDocument"
 import Container from "../components/atoms/Container"
 import Header from "../components/atoms/Header"
-import Logo from "../components/atoms/icons/Logo"
+import Logo from "../components/atoms/Icons/Logo"
 import ParticlesField from "../components/atoms/ParticlesField"
 
 import { StyledTitle, StyledHeaderInfo } from "../styles/about"
