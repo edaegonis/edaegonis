@@ -30,9 +30,10 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
         font-size: ${size}
         line-height: ${size}
         margin: 0;
-        font-family: 'Hermes Regular', sans-serif;
         background: ${baseBackground};
         color: ${base}
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        text-rendering: optimizeLegibility;
       }
   
       html, body {
