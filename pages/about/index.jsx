@@ -4,19 +4,20 @@ import Text from "../../components/atoms/Text/Text"
 import DataRadarChart from "../../components/atoms/DataRadarChart/DataRadarChart"
 import TextDocument from "../../components/atoms/TextDocument/TextDocument"
 import Container from "../../components/atoms/Container"
+import AboutPageHeader from "../../components/molecules/AboutPageHeader/AboutPageHeader"
+
 import {
   toolsData,
   frameworksData,
   languagesData
 } from "../../lib/technologies"
-import { randomQuantityOptions } from "../../lib/random"
 import {
   StyledChartsWrapper,
   StyledChartWrapper,
   StyledChartsTitle,
   StyledTextDocument
 } from "./styles"
-import AboutPageHeader from "../../components/molecules/AboutPageHeader/AboutPageHeader"
+import { randomQuantityOptions } from "../../lib/random"
 
 export default () => {
   const [randomQuantity, setRandomQuantity] = useState("quadrillions")
