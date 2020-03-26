@@ -2,13 +2,13 @@ import settings from "./settings"
 
 export const lightTheme = {
   color: {
-    baseBackground: "#091836",
-    base: "#F3F3F3",
-    special: "#D5A890",
-    link: "#F33663",
+    baseBackground: "#f3f3f3",
+    base: "#091836",
+    special: "#734D38",
+    link: "#BA0039",
     /** For styleguide */
-    sidebarBackground: "#091836",
-    linkHover: "#F33663",
+    sidebarBackground: "#f3f3f3",
+    linkHover: "#BA0039",
     light: "#909090",
     codeBackground: "#061229"
   },

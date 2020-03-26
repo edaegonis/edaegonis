@@ -9,10 +9,10 @@ import GlobalStyle from "../../styles/GlobalStyle"
  * Will wrap children components into a ThemeProvider
  */
 const ThemeWrapper = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false)
+  const [isDarkTheme, setIsDarkTheme] = useState(true)
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <GlobalStyle />
 
       {children}
