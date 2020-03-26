@@ -65,4 +65,26 @@ export const StyledNav = styled.nav`
 
 export const StyledNavItem = styled.a`
   margin: 0 0.8rem;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.2s linear, opacity 0.2s linear;
+  font-weight: bold;
+
+  &:hover {
+    opacity: 0.8;
+    &::before {
+      background-color: #000;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    bottom: 0;
+    right: 0;
+    transition: background-color 0.4s linear;
+    background-color: ${({ active }) => (active ? "#000" : "transparent")};
+  }
 `
