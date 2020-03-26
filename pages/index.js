@@ -80,18 +80,18 @@ export default () => (
             </StyledAvatarWrapper>
             <StyledTitleSection>
               <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
-              <Text>Less is more.</Text>
+              <Text>Scalable high performing technology.</Text>
             </StyledTitleSection>
           </Header>
 
           <Text>
-            Currently building elegant products effortlessly
+            Currently building elegant qualitative <a>things</a>
             <StyledReactLogo />
           </Text>
 
           {/* {!isTyping ? "You can read more " : "Would you tell me your name? "} */}
           <Text>
-            do you want{" "}
+            Do you want{" "}
             <Link href="/about">
               <a>more?</a>
             </Link>

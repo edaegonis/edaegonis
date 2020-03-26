@@ -10,15 +10,15 @@ const StyledHeader = styled.header(({ theme }) => {
   } = theme
 
   return `
-  display: flex;
-  margin-bottom: ${size};
-  flex-wrap: wrap;
-  text-align: center;
+    display: flex;
+    margin-bottom: ${size};
+    flex-direction: column;
+    align-items: center;
 
-  @media (min-width: ${desktop_breakpoint}) {
-    text-align: left;
-  }
-`
+    @media (min-width: ${desktop_breakpoint}) {
+      align-items: unset;
+    }
+  `
 })
 const Header = ({ children }) => <StyledHeader>{children}</StyledHeader>
 

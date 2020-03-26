@@ -4,23 +4,15 @@ import styled from "styled-components"
 const StyledAvatarWrapper = styled.div(({ theme }) => {
   const {
     settings: {
-      desktop_breakpoint,
       small: { size }
     }
   } = theme
 
   return `
-  flex: 1 100%;
-  margin-right: 0;
-
-  align-items: center;
-
-  @media (min-width: ${desktop_breakpoint}) {
     flex: 1 0;
-
     margin-right: ${size};
-  }
-`
+    align-items: center;
+  `
 })
 
 const StyledAvatar = styled.div`
