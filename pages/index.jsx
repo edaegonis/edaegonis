@@ -1,18 +1,16 @@
 import React from "react"
-import styled from "styled-components"
 import Link from "next/link"
 
 import Text from "../components/atoms/Text/Text"
 import TextDocument from "../components/atoms/TextDocument/TextDocument"
 import Container from "../components/atoms/Container"
 import Header from "../components/atoms/Header"
-import Logo from "../components/atoms/Logo"
+import Logo from "../components/atoms/icons/Logo"
 import { ParticlesField } from "../components/atoms/ParticlesField"
 
 import { StyledTitle, StyledHeaderInfo } from "../styles/about"
 import {
   StyledTitleSection,
-  StyledReactLogo,
   StyledAvatarWrapper,
   StyledAbsoluteWrapper,
   StyledContentWrapper
@@ -40,7 +38,6 @@ export default () => (
 
           <Text>
             Currently building elegant qualitative <a>things</a>
-            <StyledReactLogo />
           </Text>
 
           {/* {!isTyping ? "You can read more " : "Would you tell me your name? "} */}

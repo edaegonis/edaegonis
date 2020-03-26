@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-import ReactLogo from "../../components/atoms/ReactLogo"
+import ReactLogo from "../../components/atoms/Icons/ReactLogo"
 
 export const StyledTitleSection = styled.section(({ theme }) => {
   const {
