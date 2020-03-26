@@ -4,7 +4,7 @@ export const darkTheme = {
   color: {
     baseBackground: "#f3f3f3",
     base: "#091836",
-    special: "#D5A890",
+    special: "#091836",
     link: "#F33663",
     /** For styleguide */
     sidebarBackground: "#f3f3f3",

@@ -1,7 +1,12 @@
 import React from "react"
 import ParticleField from "react-particles-webgl"
+import { withTheme } from "styled-components"
 
-export const ParticlesField = () => {
+const ParticlesField = ({ theme }) => {
+  const {
+    color: { special }
+  } = theme
+
   const config = {
     showCube: false,
     dimension: "2D",
@@ -18,7 +23,7 @@ export const ParticlesField = () => {
     },
     lines: {
       colorMode: "solid",
-      color: "#D5A890",
+      color: special,
       transparency: 0.9,
       limitConnections: true,
       maxConnections: 20,
@@ -27,7 +32,7 @@ export const ParticlesField = () => {
     },
     particles: {
       colorMode: "solid",
-      color: "#D5A890",
+      color: special,
       transparency: 0.7,
       shape: "circle",
       boundingBox: "canvas",
@@ -49,3 +54,5 @@ export const ParticlesField = () => {
 
   return <ParticleField config={config} />
 }
+
+export default withTheme(ParticlesField)
