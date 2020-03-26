@@ -5,7 +5,7 @@ import TextDocument from "../../components/atoms/TextDocument/TextDocument"
 import Container from "../../components/atoms/Container"
 import AboutPageHeader from "../../components/molecules/AboutPageHeader/AboutPageHeader"
 
-import { StyledTitle } from "./styles"
+import { StyledTitle } from "../../styles/about"
 
 export default () => {
   return (

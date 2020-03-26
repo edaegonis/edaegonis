@@ -11,7 +11,7 @@ import {
   StyledHeaderInfo,
   StyledNav,
   StyledNavItem
-} from "../../../pages/about/styles"
+} from "../../../styles/about"
 
 const AboutPageHeader = () => (
   <Header>

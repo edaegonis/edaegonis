@@ -16,7 +16,7 @@ import {
   StyledChartWrapper,
   StyledChartsTitle,
   StyledTextDocument
-} from "./styles"
+} from "../../styles/about"
 import { randomQuantityOptions } from "../../lib/random"
 
 export default () => {
