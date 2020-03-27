@@ -9,13 +9,6 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
   } = theme
 
   return `
-      @font-face {
-        font-family: 'Hermes Regular';
-        src: url('/fonts/Hermes-Regular.ttf'); 
-        font-style: normal;
-        font-display: swap;
-      }
-  
       *, *:before, *:after {
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
@@ -32,8 +25,7 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
         margin: 0;
         background: ${baseBackground};
         color: ${base}
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-        text-rendering: optimizeLegibility;
+
       }
   
       html, body {

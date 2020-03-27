@@ -19,7 +19,6 @@ const StyledInput = styled.input(({ theme, selectedSize }) => {
     line-height: ${line_height};
     text-indent: 1rem;
     color: ${base};
-    font-family: 'Hermes Regular',sans-serif;
     transition: all .4s cubic-bezier(1, 0.35, 0, 0.93);
 
     &:focus {
