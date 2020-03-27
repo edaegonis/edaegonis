@@ -26,7 +26,7 @@ function Logo({ theme }) {
     })
 
     timeline.add({
-      targets: ".earth",
+      targets: [".earth"],
       strokeDashoffset: [anime.setDashoffset, 0],
       easing: "easeInOutSine",
       duration: 600,
@@ -34,7 +34,7 @@ function Logo({ theme }) {
     })
 
     timeline.add({
-      targets: ".circle",
+      targets: [".circle"],
       strokeDashoffset: [anime.setDashoffset, 0],
       easing: "easeInOutSine",
       duration: 600,
@@ -42,26 +42,13 @@ function Logo({ theme }) {
     })
 
     timeline.add({
-      targets: ".major-hexagon",
+      targets: [".major-hexagon", ".pentagram", ".hexagon"],
       strokeDashoffset: [anime.setDashoffset, 0],
       easing: "easeInOutSine",
       duration: 600,
-      direction: "normal"
-    })
-
-    timeline.add({
-      targets: ".pentagram",
-      strokeDashoffset: [anime.setDashoffset, 0],
-      easing: "easeInOutSine",
-      duration: 600,
-      direction: "normal"
-    })
-
-    timeline.add({
-      targets: ".hexagon",
-      strokeDashoffset: [anime.setDashoffset, 0],
-      easing: "easeInOutSine",
-      duration: 600,
+      delay: function(el, i) {
+        return i * 600
+      },
       direction: "normal"
     })
 
