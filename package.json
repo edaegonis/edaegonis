@@ -15,6 +15,7 @@
   "dependencies": {
     "@nivo/radar": "^0.61.1",
     "@testing-library/jest-dom": "^5.1.1",
+    "animejs": "^3.1.0",
     "next": "latest",
     "next-ga": "^2.3.4",
     "react": "^16.7.0",

@@ -43,7 +43,7 @@ export default () => {
 
         <StyledTextDocument>
           <StyledChartsTitle size="medium">
-            Favorite Technologies
+            favorite technologies
           </StyledChartsTitle>
         </StyledTextDocument>
 

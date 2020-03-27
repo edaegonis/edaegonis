@@ -27,13 +27,13 @@ export const StyledTitle = styled(Text)`
 
 export const StyledChartsTitle = styled(Text)(({ theme }) => {
   const {
-    color: { link }
+    color: { special }
   } = theme
 
   return `
     margin-bottom: 0;
     text-align: center;
-    color: ${link};
+    color: ${special};
   `
 })
 
