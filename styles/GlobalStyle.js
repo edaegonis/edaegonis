@@ -23,9 +23,9 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
         font-size: ${size}
         line-height: ${size}
         margin: 0;
-        background: ${baseBackground};
-        color: ${base}
-
+        background-color: ${baseBackground};
+        color: ${base};
+        transition: color .6s cubic-bezier(0.37, 0, 0.63, 1), background-color .6s cubic-bezier(0.37, 0, 0.63, 1);
       }
   
       html, body {
