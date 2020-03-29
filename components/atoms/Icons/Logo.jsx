@@ -22,7 +22,7 @@ function Logo({ theme }) {
     const timeline = anime.timeline({
       duration: 600,
       ease: "easeInOutSine",
-      autoplay: false
+      autoplay: true
     })
 
     timeline.add({
@@ -64,8 +64,6 @@ function Logo({ theme }) {
       duration: 600,
       direction: "normal"
     })
-
-    timeline.play()
   }, [])
 
   useEffect(() => {
