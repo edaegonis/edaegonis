@@ -2,7 +2,7 @@ import React from "react"
 import ParticleField from "react-particles-webgl"
 import { withTheme } from "styled-components"
 
-const ParticlesField = ({ theme }) => {
+const ParticlesField = ({ theme, count, velocity }) => {
   const {
     color: { special }
   } = theme
@@ -10,7 +10,7 @@ const ParticlesField = ({ theme }) => {
   const config = {
     showCube: false,
     dimension: "2D",
-    velocity: 1,
+    velocity,
     boundaryType: "bounce",
     antialias: true,
     direction: {
@@ -36,7 +36,7 @@ const ParticlesField = ({ theme }) => {
       transparency: 0.7,
       shape: "circle",
       boundingBox: "canvas",
-      count: 48,
+      count,
       minSize: 4,
       maxSize: 32,
       visible: true
@@ -53,6 +53,11 @@ const ParticlesField = ({ theme }) => {
   }
 
   return <ParticleField config={config} />
+}
+
+ParticlesField.defaultProps = {
+  count: 48,
+  velocity: 1
 }
 
 export default withTheme(ParticlesField)

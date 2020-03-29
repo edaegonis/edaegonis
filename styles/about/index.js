@@ -3,6 +3,12 @@ import styled from "styled-components"
 import Text from "../../components/atoms/Text/Text"
 import TextDocument from "../../components/atoms/TextDocument/TextDocument"
 
+export const StyledParticlesWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`
+
 export const StyledChartsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -19,6 +25,7 @@ export const StyledChartWrapper = styled.div`
 export const StyledTitleSection = styled.section`
   flex: 1 auto;
   text-align: left;
+  z-index: 2;
 `
 
 export const StyledTitle = styled(Text)`
@@ -44,6 +51,7 @@ export const StyledTextDocument = styled(TextDocument)`
 export const StyledHeaderInfo = styled.div`
   display: flex;
   flex-wrap: wrap;
+  position: relative;
   margin-bottom: 1.6rem;
   align-items: center;
 `

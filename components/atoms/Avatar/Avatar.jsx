@@ -22,6 +22,7 @@ const StyledAvatar = styled.div`
   margin: 0 auto;
   border-radius: ${({ type }) => (type === "circular" ? "50%" : 0)};
   overflow: hidden;
+  z-index: 2;
 `
 
 const StyledAvatarImg = styled.img`
