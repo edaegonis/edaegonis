@@ -19,7 +19,7 @@ import {
 } from "../../styles/about"
 import { randomQuantityOptions } from "../../lib/random"
 
-export default () => {
+const RandomQuantityText = () => {
   const [randomQuantity, setRandomQuantity] = useState("quadrillions")
 
   const handleRandomQuantity = () => {
@@ -28,6 +28,10 @@ export default () => {
     setRandomQuantity(randomQuantityOptions[picked])
   }
 
+  return <a onClick={handleRandomQuantity}>{randomQuantity}</a>
+}
+
+export default () => {
   return (
     <section>
       <Container>
@@ -36,8 +40,7 @@ export default () => {
 
           <Text>
             Previously I built interfaces and delivered projects for{" "}
-            <a onClick={handleRandomQuantity}>{randomQuantity}</a> of users on
-            e-commerce websites.
+            <RandomQuantityText /> of users on e-commerce websites.
           </Text>
         </TextDocument>
 
