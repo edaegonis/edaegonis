@@ -10,21 +10,16 @@ import {
   StyledTitle,
   StyledHeaderInfo,
   StyledNav,
-  StyledNavItem,
-  StyledParticlesWrapper
+  StyledNavItem
 } from "../../../styles/about"
-import ParticlesField from "../../atoms/ParticlesField"
 
 const AboutPageHeader = () => (
   <Header>
     <StyledHeaderInfo>
-      <StyledParticlesWrapper>
-        <ParticlesField count={6} velocity={0.3} />
-      </StyledParticlesWrapper>
       <Avatar src="/images/avatar2.jpg" />
       <StyledTitleSection>
         <StyledTitle size="large">hi, i am eduardo</StyledTitle>
-        <Text>an adept software developer</Text>
+        <Text>an adept software engineer</Text>
       </StyledTitleSection>
     </StyledHeaderInfo>
     <StyledNav>
