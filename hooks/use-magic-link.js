@@ -8,6 +8,7 @@ import { useState, useCallback, useEffect } from "react"
  */
 export const useMagicLink = magic => {
   const [user, setUser] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   /**
    * Uses magic to retrieve logged in user,
@@ -16,6 +17,8 @@ export const useMagicLink = magic => {
   const resolveUser = useCallback(
     async function() {
       if (!magic) return true
+
+      setIsLoading(true)
 
       const isLoggedIn = await magic.user.isLoggedIn()
 
@@ -27,6 +30,7 @@ export const useMagicLink = magic => {
 
         setUser(user)
       }
+      setIsLoading(false)
     },
     [magic, setUser]
   )
@@ -53,5 +57,5 @@ export const useMagicLink = magic => {
     console.log("logging out...")
   }
 
-  return { user, handleLogin, handleLogout }
+  return { user, handleLogin, handleLogout, isLoading }
 }

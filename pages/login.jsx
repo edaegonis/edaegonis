@@ -3,7 +3,9 @@ import React from "react"
 import { useMagicLink } from "../hooks/use-magic-link"
 
 const Login = ({ magic }) => {
-  const { handleLogin, handleLogout, user } = useMagicLink(magic)
+  const { handleLogin, handleLogout, user, isLoading } = useMagicLink(magic)
+
+  if (isLoading) return <h3>Loading...</h3>
 
   return user ? (
     <>
