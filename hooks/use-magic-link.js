@@ -29,6 +29,8 @@ export const useMagicLink = magic => {
         console.log(user)
 
         setUser(user)
+      } else {
+        setUser(false)
       }
       setIsLoading(false)
     },
@@ -53,8 +55,10 @@ export const useMagicLink = magic => {
     }
   }
 
-  const handleLogout = () => {
-    console.log("logging out...")
+  /** Handler for logging out */
+  const handleLogout = async () => {
+    await magic.user.logout()
+    resolveUser()
   }
 
   return { user, handleLogin, handleLogout, isLoading }
