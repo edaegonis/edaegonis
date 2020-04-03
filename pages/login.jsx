@@ -2,8 +2,8 @@ import React from "react"
 
 import { useMagicLink } from "../hooks/use-magic-link"
 
-export const Login = () => {
-  const { handleLogin, handleLogout, user } = useMagicLink()
+const Login = ({ magic }) => {
+  const { handleLogin, handleLogout, user } = useMagicLink(magic)
 
   return user ? (
     <>
@@ -25,3 +25,5 @@ export const Login = () => {
     </>
   )
 }
+
+export default Login

@@ -1,15 +1,22 @@
-import { useState, useCallback } from "react"
-import { Magic } from "magic-sdk"
+import { useState, useCallback, useEffect } from "react"
 
-const apiKey = "pk_test_FAC7D9F50A43C7B0"
-
-export const useMagicLink = () => {
+/**
+ * Immediately resolves the user if he's a returning user
+ * also exposes functions to handle magic link authentication
+ *
+ * @param {Object} magic The magic instance
+ */
+export const useMagicLink = magic => {
   const [user, setUser] = useState(false)
 
-  if (typeof window !== "undefined") {
-    const magic = new Magic(apiKey)
+  /**
+   * Uses magic to retrieve logged in user,
+   * and then sets the current user state
+   */
+  const resolveUser = useCallback(
+    async function() {
+      if (!magic) return true
 
-    const resolveUser = useCallback(async function resolveUser() {
       const isLoggedIn = await magic.user.isLoggedIn()
 
       console.log(isLoggedIn)
@@ -20,26 +27,31 @@ export const useMagicLink = () => {
 
         setUser(user)
       }
-    }, [])
+    },
+    [magic, setUser]
+  )
 
-    /* 4️⃣ Implement Login Handler */
-    const handleLogin = async e => {
-      e.preventDefault()
-      const email = new FormData(e.target).get("email")
-      if (email) {
-        /* One-liner login 🤯 */
-        const idk = await magic.auth.loginWithMagicLink({ email })
-        console.log(idk)
-        resolveUser()
-      }
+  /** Make sure to resolve the user on component mounting */
+  useEffect(() => {
+    resolveUser()
+  }, [resolveUser])
+
+  /* Handler for logging in */
+  const handleLogin = async e => {
+    e.preventDefault()
+    const email = new FormData(e.target).get("email")
+
+    if (email) {
+      await magic.auth.loginWithMagicLink({ email })
+
+      /** Update the logged in user */
+      resolveUser()
     }
-
-    const handleLogout = () => {
-      console.log("logging out...")
-    }
-
-    return { user, handleLogin, handleLogout }
   }
 
-  return { user: false, handleLogin: false, handleLogout: false }
+  const handleLogout = () => {
+    console.log("logging out...")
+  }
+
+  return { user, handleLogin, handleLogout }
 }

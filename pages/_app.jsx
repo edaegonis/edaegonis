@@ -4,7 +4,7 @@ import withGA from "next-ga"
 import React from "react"
 
 import ThemeWrapper from "../utils/ThemeWrapper/ThemeWrapper"
-import AuthWrapper from "../utils/AuthWrapper/AuthWrapper"
+import MagicWrapper from "../utils/MagicWrapper/MagicWrapper"
 
 class MyApp extends App {
   render() {
@@ -12,9 +12,9 @@ class MyApp extends App {
 
     return (
       <ThemeWrapper>
-        <AuthWrapper>
+        <MagicWrapper>
           <Component {...pageProps} />
-        </AuthWrapper>
+        </MagicWrapper>
       </ThemeWrapper>
     )
   }
