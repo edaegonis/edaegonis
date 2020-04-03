@@ -19,17 +19,26 @@ export const useMagicLink = magic => {
       if (!magic) return true
 
       setIsLoading(true)
+      const res = await fetch("/api/user")
+      console.log(res)
 
-      const isLoggedIn = await magic.user.isLoggedIn()
-
-      if (isLoggedIn) {
-        /* Get user metadata including email */
-        const user = await magic.user.getMetadata()
-
-        setUser(user)
+      if (res.status === 200) {
+        let userData = await res.json()
+        console.log(userData)
       } else {
         setUser(false)
       }
+
+      // const isLoggedIn = await magic.user.isLoggedIn()
+
+      // if (isLoggedIn) {
+      //   /* Get user metadata including email */
+      //   const user = await magic.user.getMetadata()
+
+      //   setUser(user)
+      // } else {
+      //   setUser(false)
+      // }
       setIsLoading(false)
     },
     [magic, setUser]
@@ -45,10 +54,25 @@ export const useMagicLink = magic => {
     e.preventDefault()
     const email = new FormData(e.target).get("email")
 
-    if (email) {
-      await magic.auth.loginWithMagicLink({ email })
+    // if (email) {
+    //   await magic.auth.loginWithMagicLink({ email })
 
-      /** Update the logged in user */
+    //   /** Update the logged in user */
+    //   resolveUser()
+    // }
+
+    if (email) {
+      const didToken = await magic.auth.loginWithMagicLink({ email })
+
+      await fetch(`/api/auth`, {
+        headers: new Headers({
+          Authorization: "Bearer " + didToken
+        }),
+        withCredentials: true,
+        credentials: "same-origin",
+        method: "POST"
+      })
+
       resolveUser()
     }
   }
