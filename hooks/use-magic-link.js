@@ -22,11 +22,9 @@ export const useMagicLink = magic => {
 
       const isLoggedIn = await magic.user.isLoggedIn()
 
-      console.log(isLoggedIn)
       if (isLoggedIn) {
         /* Get user metadata including email */
         const user = await magic.user.getMetadata()
-        console.log(user)
 
         setUser(user)
       } else {
