@@ -6,7 +6,7 @@ import { useState, useCallback, useEffect } from "react"
  *
  * @param {Object} magic The magic instance
  */
-export const useMagicLink = magic => {
+export const useMagicLink = (magic) => {
   const [user, setUser] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -15,7 +15,7 @@ export const useMagicLink = magic => {
    * and then sets the current user state
    */
   const resolveUser = useCallback(
-    async function() {
+    async function () {
       if (!magic) return true
 
       setIsLoading(true)
@@ -24,7 +24,8 @@ export const useMagicLink = magic => {
 
       if (res.status === 200) {
         let userData = await res.json()
-        console.log(userData)
+
+        setUser(userData)
       } else {
         setUser(false)
       }
@@ -50,7 +51,7 @@ export const useMagicLink = magic => {
   }, [resolveUser])
 
   /* Handler for logging in */
-  const handleLogin = async e => {
+  const handleLogin = async (e) => {
     e.preventDefault()
     const email = new FormData(e.target).get("email")
 
@@ -64,14 +65,18 @@ export const useMagicLink = magic => {
     if (email) {
       const didToken = await magic.auth.loginWithMagicLink({ email })
 
-      await fetch(`/api/auth`, {
+      const raw = await fetch(`/api/auth`, {
         headers: new Headers({
-          Authorization: "Bearer " + didToken
+          Authorization: "Bearer " + didToken,
         }),
         withCredentials: true,
         credentials: "same-origin",
-        method: "POST"
+        method: "POST",
       })
+
+      const parsed = await raw.json()
+
+      console.log(parsed)
 
       resolveUser()
     }
@@ -79,9 +84,14 @@ export const useMagicLink = magic => {
 
   /** Handler for logging out */
   const handleLogout = async () => {
-    await magic.user.logout()
+    await fetch(`/api/logout`, { method: "POST" })
     resolveUser()
   }
 
-  return { user, handleLogin, handleLogout, isLoading }
+  const handleBuyApple = async () => {
+    await fetch(`/api/buy-apple`, { method: "POST" })
+    resolveUser()
+  }
+
+  return { user, handleLogin, handleLogout, handleBuyApple, isLoading }
 }
