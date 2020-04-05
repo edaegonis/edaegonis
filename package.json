@@ -9,7 +9,7 @@
     "dev": "nodemon server.js",
     "build": "next build && yarn build:styleguide",
     "build:styleguide": "cd styleguide && yarn && yarn styleguide:build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "test": "jest --collectCoverage=true --watch"
   },
   "dependencies": {
