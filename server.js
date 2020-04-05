@@ -104,66 +104,8 @@ app.prepare().then(() => {
     return done(null, user)
   }
 
-  server.get("/api/user", function (req, res) {
-    if (req.isAuthenticated()) {
-      return res.status(200).json(req.user).end()
-    } else {
-      return res.status(401).end(`User is not logged in.`)
-    }
-  })
-
-  server.post("*", async function (req, res) {
-    switch (req.url) {
-      case "/api/auth":
-        try {
-          const user = await new Promise((resolve, reject) => {
-            passport.authenticate("magic", function (error, user, info) {
-              if (error || info) {
-                reject(error)
-              }
-
-              if (user) {
-                resolve(user)
-              }
-            })(req, res)
-          })
-
-          req.login(user, (err) => {
-            if (err) {
-              res.status(500).json({ message: "Session save went bad." })
-              return
-            }
-            console.log("---123456789098765432345678---", req.user)
-            res.status(200).json({ errors: false, user })
-          })
-        } catch (e) {
-          throw e
-        }
-        break
-
-      case "/api/logout":
-        if (req.isAuthenticated()) {
-          await magic.users.logoutByIssuer(req.user.issuer)
-          req.logout()
-          return res.status(200).end()
-        } else {
-          return res.status(401).end(`User is not logged in.`)
-        }
-
-      case "/api/user":
-        if (req.isAuthenticated()) {
-          await users.update(
-            { issuer: req.user.issuer },
-            { $inc: { appleCount: 1 } }
-          )
-          return res.status(200).end()
-        } else {
-          return res.status(401).end(`User is not logged in.`)
-        }
-    }
-  })
-
   server.all("*", (req, res) => {
+    req.magic = magic
     return handle(req, res)
   })
 
