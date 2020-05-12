@@ -2,20 +2,20 @@ import React, { useState } from "react"
 
 import Text from "../../components/atoms/Text/Text"
 import DataRadarChart from "../../components/atoms/DataRadarChart/DataRadarChart"
-import TextDocument from "../../components/atoms/TextDocument/TextDocument"
-import Container from "../../components/atoms/Container"
+import TextDocument from "../../components/layout/TextDocument/TextDocument"
+import Container from "../../components/layout/Container"
 import AboutPageHeader from "../../components/molecules/AboutPageHeader/AboutPageHeader"
 
 import {
   toolsData,
   frameworksData,
-  languagesData
+  languagesData,
 } from "../../lib/technologies"
 import {
   StyledChartsWrapper,
   StyledChartWrapper,
   StyledChartsTitle,
-  StyledTextDocument
+  StyledTextDocument,
 } from "../../styles/about"
 import { randomQuantityOptions } from "../../lib/random"
 

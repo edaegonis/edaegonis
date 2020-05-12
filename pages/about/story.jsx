@@ -1,8 +1,8 @@
 import React from "react"
 
 import Text from "../../components/atoms/Text/Text"
-import TextDocument from "../../components/atoms/TextDocument/TextDocument"
-import Container from "../../components/atoms/Container"
+import TextDocument from "../../components/layout/TextDocument/TextDocument"
+import Container from "../../components/layout/Container"
 import AboutPageHeader from "../../components/molecules/AboutPageHeader/AboutPageHeader"
 
 import { StyledTitle } from "../../styles/about"

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 import Text from "../../components/atoms/Text/Text"
-import TextDocument from "../../components/atoms/TextDocument/TextDocument"
+import TextDocument from "../../components/layout/TextDocument/TextDocument"
 
 export const StyledParticlesWrapper = styled.div`
   position: absolute;
@@ -34,7 +34,7 @@ export const StyledTitle = styled(Text)`
 
 export const StyledChartsTitle = styled(Text)(({ theme }) => {
   const {
-    color: { special }
+    color: { special },
   } = theme
 
   return `
@@ -64,7 +64,7 @@ export const StyledNav = styled.nav`
 
 export const StyledNavItem = styled(Text)(({ active, theme }) => {
   const {
-    color: { link }
+    color: { link },
   } = theme
 
   return `

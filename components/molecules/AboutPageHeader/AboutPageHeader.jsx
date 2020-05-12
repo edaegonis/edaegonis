@@ -1,6 +1,6 @@
 import React from "react"
 
-import Header from "../../atoms/Header"
+import Header from "../../layout/Header"
 import Avatar from "../../atoms/Avatar/Avatar"
 import Text from "../../atoms/Text/Text"
 import { ActiveLink } from "../../atoms/ActiveLink/ActiveLink"
@@ -10,7 +10,7 @@ import {
   StyledTitle,
   StyledHeaderInfo,
   StyledNav,
-  StyledNavItem
+  StyledNavItem,
 } from "../../../styles/about"
 
 const AboutPageHeader = () => (

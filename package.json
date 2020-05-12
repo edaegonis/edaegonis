@@ -7,9 +7,9 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "next",
-    "build": "next build && yarn build:styleguide",
-    "build:styleguide": "cd styleguide && yarn && yarn styleguide:build",
+    "build": "next build",
     "start": "next start",
+    "styleguide": "cd styleguide && yarn styleguide",
     "test": "jest --collectCoverage=true --watch"
   },
   "dependencies": {
