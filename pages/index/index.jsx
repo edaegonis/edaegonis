@@ -6,7 +6,6 @@ import TextDocument from "../../components/layout/TextDocument/TextDocument"
 import Container from "../../components/layout/Container"
 import Header from "../../components/layout/Header"
 import Logo from "../../components/atoms/Icons/Logo"
-import ParticlesField from "../../components/atoms/ParticlesField"
 
 import { StyledTitle, StyledHeaderInfo } from "../../styles/about"
 import {
@@ -18,9 +17,6 @@ import {
 
 export default () => (
   <section>
-    <StyledAbsoluteWrapper>
-      <ParticlesField />
-    </StyledAbsoluteWrapper>
     <StyledContentWrapper>
       <Container>
         <TextDocument>
