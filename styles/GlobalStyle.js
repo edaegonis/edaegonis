@@ -3,9 +3,10 @@ import { createGlobalStyle } from "styled-components"
 const GlobalStyle = createGlobalStyle(({ theme }) => {
   const {
     settings: {
-      small: { size }
+      small: { size },
     },
-    color: { baseBackground, base, link }
+    color: { base, link },
+    shader,
   } = theme
 
   return `
@@ -23,9 +24,11 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
         font-size: ${size}
         line-height: ${size}
         margin: 0;
-        background-color: ${baseBackground};
+        background: linear-gradient(to left bottom, ${shader.map(
+          (shade) => shade
+        )});
         color: ${base};
-        transition: color .6s cubic-bezier(0.37, 0, 0.63, 1), background-color .6s cubic-bezier(0.37, 0, 0.63, 1);
+        transition: all 5s cubic-bezier(0.37, 0, 0.63, 1);
       }
   
       html, body {

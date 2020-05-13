@@ -1,12 +1,4 @@
 export const colors = {
-  primary: {
-    lighter: "#643858",
-    default: "#43263B",
-    darker: "#22141E",
-  },
-  secondary: {
-    lighter: "#F2DFDE",
-    default: "#F1DBD9",
-    darker: "#AC9494",
-  },
+  secondary: ["#fafafaff", "#f4e6e5ff", "#edd4d3ff", "#deb1afff", "#d79f9dff"],
+  primary: ["#744266ff", "#643858ff", "#43263bff", "#22141eff", "#120a10ff"],
 }

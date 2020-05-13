@@ -9,9 +9,8 @@ import GlobalStyle from "../../styles/GlobalStyle"
 
 const StyledThemeSettingsWrapper = styled.span(({ theme }) => {
   const {
-    color: { special }
+    color: { special },
   } = theme
-
   return `
     display: flex;
     align-items: center;
@@ -36,7 +35,7 @@ const ThemeWrapper = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(true)
 
   function handleThemeTypeToggle() {
-    setIsDarkTheme(prev => !prev)
+    setIsDarkTheme((prev) => !prev)
   }
 
   return (

@@ -5,14 +5,15 @@ const { primary, secondary } = colors
 
 export const darkTheme = {
   color: {
-    baseBackground: primary.lighter,
-    base: secondary.default,
-    special: secondary.lighter,
-    link: secondary.lighter,
+    baseBackground: primary[2],
+    base: secondary[2],
+    special: secondary[0],
+    link: secondary[0],
   },
+  shader: primary,
   logo: {
-    primary: secondary.lighter,
-    secondary: secondary.darker,
+    primary: secondary[0],
+    secondary: secondary[4],
   },
   ...settings,
 }
