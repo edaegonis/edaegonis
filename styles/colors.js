@@ -5,8 +5,8 @@ export const colors = {
     darker: "#22141E",
   },
   secondary: {
-    lighter: "#faf9fb",
-    default: "#E1DDE4",
-    darker: "#c8c1cd",
+    lighter: "#F2DFDE",
+    default: "#F1DBD9",
+    darker: "#AC9494",
   },
 }

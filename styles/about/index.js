@@ -3,12 +3,6 @@ import styled from "styled-components"
 import Text from "../../components/atoms/Text/Text"
 import TextDocument from "../../components/layout/TextDocument/TextDocument"
 
-export const StyledParticlesWrapper = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-`
-
 export const StyledChartsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -83,7 +77,6 @@ export const StyledNavItem = styled(Text)(({ active, theme }) => {
 
   &::before {
     content: "";
-    position: absolute;
     width: 20px;
     height: 2px;
     bottom: 0;

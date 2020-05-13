@@ -4,7 +4,7 @@ import ReactLogo from "../../components/atoms/Icons/ReactLogo"
 
 export const StyledTitleSection = styled.section(({ theme }) => {
   const {
-    settings: { desktop_breakpoint }
+    settings: { desktop_breakpoint },
   } = theme
 
   return `
@@ -26,8 +26,8 @@ export const StyledAvatarWrapper = styled.div(({ theme }) => {
   const {
     settings: {
       desktop_breakpoint,
-      small: { size }
-    }
+      small: { size },
+    },
   } = theme
 
   return `
@@ -43,16 +43,3 @@ export const StyledAvatarWrapper = styled.div(({ theme }) => {
     }
   `
 })
-
-export const StyledAbsoluteWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-`
-
-export const StyledContentWrapper = styled(StyledAbsoluteWrapper)`
-  z-index: 2;
-`

@@ -11,40 +11,36 @@ import { StyledTitle, StyledHeaderInfo } from "../../styles/about"
 import {
   StyledTitleSection,
   StyledAvatarWrapper,
-  StyledAbsoluteWrapper,
-  StyledContentWrapper,
 } from "../../styles/index/index"
 
 export default () => (
   <section>
-    <StyledContentWrapper>
-      <Container>
-        <TextDocument>
-          <Header>
-            <StyledHeaderInfo>
-              <StyledAvatarWrapper>
-                <Logo />
-              </StyledAvatarWrapper>
-              <StyledTitleSection>
-                <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
-                <Text>Scalable high performing technology.</Text>
-              </StyledTitleSection>
-            </StyledHeaderInfo>
-          </Header>
+    <Container>
+      <TextDocument>
+        <Header>
+          <StyledHeaderInfo>
+            <StyledAvatarWrapper>
+              <Logo />
+            </StyledAvatarWrapper>
+            <StyledTitleSection>
+              <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
+              <Text>Scalable high performing technology.</Text>
+            </StyledTitleSection>
+          </StyledHeaderInfo>
+        </Header>
 
-          <Text>
-            Currently building elegant qualitative <a>things</a>
-          </Text>
+        <Text>
+          Currently building elegant qualitative <a>things</a>
+        </Text>
 
-          {/* {!isTyping ? "You can read more " : "Would you tell me your name? "} */}
-          <Text>
-            Do you want{" "}
-            <Link href="/about">
-              <a>more?</a>
-            </Link>
-          </Text>
-        </TextDocument>
-      </Container>
-    </StyledContentWrapper>
+        {/* {!isTyping ? "You can read more " : "Would you tell me your name? "} */}
+        <Text>
+          Do you want{" "}
+          <Link href="/about">
+            <a>more?</a>
+          </Link>
+        </Text>
+      </TextDocument>
+    </Container>
   </section>
 )
