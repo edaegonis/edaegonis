@@ -1,16 +1,18 @@
 import settings from "./settings"
+import { colors } from "./colors"
+
+const { primary, secondary } = colors
 
 export const darkTheme = {
   color: {
-    baseBackground: "#091836",
-    base: "#F3F3F3",
-    special: "#D5A890",
-    link: "#F33663",
-    /** For styleguide */
-    sidebarBackground: "#091836",
-    linkHover: "#F33663",
-    light: "#909090",
-    codeBackground: "#061229"
+    baseBackground: primary.default,
+    base: secondary.default,
+    special: secondary.lighter,
+    link: secondary.lighter,
   },
-  ...settings
+  logo: {
+    primary: secondary.lighter,
+    secondary: secondary.darker,
+  },
+  ...settings,
 }
