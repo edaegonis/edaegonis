@@ -2,10 +2,8 @@ import React, { useState } from "react"
 import styled, { ThemeProvider } from "styled-components"
 
 import SunLogo from "../../components/atoms/Icons/Sun"
-import MoonLogo from "../../components/atoms/Icons/Moon"
-import { lightTheme } from "../../styles/theme-light"
-import { darkTheme } from "../../styles/theme-dark"
 import GlobalStyle from "../../styles/GlobalStyle"
+import { generateRandomTheme } from "../palette-generator"
 
 const StyledThemeSettingsWrapper = styled.span(({ theme }) => {
   const {
@@ -32,19 +30,20 @@ const StyledThemeSettingsWrapper = styled.span(({ theme }) => {
  * Will wrap children components into a ThemeProvider
  */
 const ThemeWrapper = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(true)
+  const [theme, setTheme] = useState(generateRandomTheme())
 
   function handleThemeTypeToggle() {
-    setIsDarkTheme((prev) => !prev)
+    const theme = generateRandomTheme()
+    setTheme(theme)
   }
 
   return (
-    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
 
       {children}
       <StyledThemeSettingsWrapper onClick={handleThemeTypeToggle}>
-        {isDarkTheme ? <SunLogo /> : <MoonLogo />}
+        <SunLogo />
       </StyledThemeSettingsWrapper>
     </ThemeProvider>
   )
