@@ -46,10 +46,23 @@ export const getThemeFromColors = (colors) => {
   return theme
 }
 
-export const generateRandomTheme = () => {
-  const colors = {
-    primary: generateMonochromaticPalette(),
-    secondary: generateMonochromaticPalette("secondary"),
+export const generateRandomTheme = (type = "dark") => {
+  let colors
+
+  switch (type) {
+    case "dark":
+      colors = {
+        primary: generateMonochromaticPalette(),
+        secondary: generateMonochromaticPalette("secondary"),
+      }
+      break
+
+    default:
+      colors = {
+        primary: generateMonochromaticPalette("secondary"),
+        secondary: generateMonochromaticPalette(),
+      }
+      break
   }
 
   const theme = getThemeFromColors(colors)

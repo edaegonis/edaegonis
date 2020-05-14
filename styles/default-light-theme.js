@@ -1,5 +1,5 @@
 import settings from "./settings"
-import { colors } from "./colors"
+import { colors } from "./default-palette"
 
 const { primary, secondary } = colors
 
