@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from "styled-components"
 
 import SunLogo from "../../components/atoms/Icons/Sun"
 import GlobalStyle from "../../styles/GlobalStyle"
-import { generateRandomTheme } from "../palette-generator"
+import { generateRandomTheme, getDefaultTheme } from "../themes"
 import Moon from "../../components/atoms/Icons/Moon"
 
 const StyledThemeSettingsWrapper = styled.span(({ theme }) => {
@@ -35,12 +35,17 @@ const StyledThemeGeneratorWrapper = styled(StyledThemeSettingsWrapper)`
  * Will wrap children components into a ThemeProvider
  */
 const ThemeWrapper = ({ children }) => {
-  const [theme, setTheme] = useState(generateRandomTheme())
+  const [isMounted, setIsMounted] = useState(false)
+  const [theme, setTheme] = useState(getDefaultTheme())
   const [isDarkTheme, setIsDarkTheme] = useState(true)
 
   useEffect(() => {
-    handleRandomThemeGeneration()
-  }, [isDarkTheme])
+    if (isMounted) {
+      handleRandomThemeGeneration()
+    }
+
+    setIsMounted(true)
+  }, [isDarkTheme, setIsMounted])
 
   function handleRandomThemeGeneration() {
     const theme = generateRandomTheme(isDarkTheme && "dark")

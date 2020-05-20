@@ -1,9 +1,10 @@
 import settings from "../styles/settings"
+import { colors } from "../styles/default-palette"
 
 const getRandomNumber = (max, min) =>
   Math.floor(Math.random() * (max - min + 1)) + min
 
-export const generateMonochromaticPalette = (paletteType = "primary") => {
+const generateMonochromaticPalette = (paletteType = "primary") => {
   const monochromaticVariationsQuantity = 5
 
   const hue = getRandomNumber(360, 0)
@@ -26,7 +27,7 @@ export const generateMonochromaticPalette = (paletteType = "primary") => {
   return colors
 }
 
-export const getThemeFromColors = (colors) => {
+const getThemeFromColors = (colors) => {
   const { primary, secondary } = colors
   const theme = {
     color: {
@@ -65,6 +66,12 @@ export const generateRandomTheme = (type = "dark") => {
       break
   }
 
+  const theme = getThemeFromColors(colors)
+
+  return theme
+}
+
+export const getDefaultTheme = () => {
   const theme = getThemeFromColors(colors)
 
   return theme
