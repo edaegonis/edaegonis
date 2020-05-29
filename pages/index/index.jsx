@@ -33,9 +33,7 @@ export default () => (
 
         <Text>
           Maybe you can start by reading some of my <a>writings</a> or checking
-          out my
-          <a>projects</a>. You can also play mmorpg here Currently building
-          elegant qualitative <a>things</a>
+          out my <a>projects</a>. You can also play mmorpg <a>here</a>
         </Text>
 
         {/* {!isTyping ? "You can read more " : "Would you tell me your name? "} */}
