@@ -8,8 +8,9 @@ import { withTheme } from "styled-components"
  */
 const DataRadarChart = ({ data, theme }) => {
   const {
-    color: { special },
+    colors: { secondary },
   } = theme
+
   return (
     <ResponsiveRadar
       data={data}
@@ -20,7 +21,7 @@ const DataRadarChart = ({ data, theme }) => {
       maxValue={100}
       gridLevels={6}
       enableDotLabel={true}
-      colors={special}
+      colors={secondary[0]}
       dotLabelYOffset={-3}
       gridLabelOffset={9}
     />

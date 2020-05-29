@@ -5,8 +5,7 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
     settings: {
       small: { size },
     },
-    color: { base, link },
-    shader,
+    colors: { secondary, primary },
   } = theme
 
   return `
@@ -24,10 +23,10 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
         font-size: ${size}
         line-height: ${size}
         margin: 0;
-        background: linear-gradient(to left bottom, ${shader.map(
+        background: linear-gradient(to left bottom, ${primary.map(
           (shade) => shade
         )});
-        color: ${base};
+        color: ${secondary[2]};
         transition: all 5s cubic-bezier(0.37, 0, 0.63, 1);
       }
   
@@ -49,11 +48,11 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
       a {
         text-decoration: none;
         cursor: pointer;
-        color: ${link};
+        color: ${secondary[4]};
       }
   
       text {
-        fill: ${base}!important;
+        fill: ${secondary[2]}!important;
       }
   
     `

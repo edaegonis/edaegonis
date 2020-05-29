@@ -14,7 +14,7 @@ const ultraHexagon =
 
 function Logo({ theme }) {
   const {
-    logo: { primary, secondary },
+    colors: { secondary },
   } = theme
 
   const handleAnimation = useCallback(() => {
@@ -72,8 +72,8 @@ function Logo({ theme }) {
   return (
     <svg
       className="main-logo"
-      width="101"
-      height="101"
+      width="240"
+      height="240"
       viewBox="0 0 101 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -82,55 +82,55 @@ function Logo({ theme }) {
       <path
         className="earth"
         d="M100 50.5C100 77.8381 77.8381 100 50.5 100C23.1619 100 1 77.8381 1 50.5C1 23.1619 23.1619 1 50.5 1C77.8381 1 100 23.1619 100 50.5Z"
-        stroke={primary}
+        stroke={secondary[0]}
         strokeWidth="1.5"
       />
       <path
         className="circle"
         d="M98.5 43C98.5 56.531 87.531 67.5 74 67.5C60.469 67.5 49.5 56.531 49.5 43C49.5 29.469 60.469 18.5 74 18.5C87.531 18.5 98.5 29.469 98.5 43Z"
-        stroke={secondary}
+        stroke={secondary[4]}
         strokeWidth="1.5"
       />
       <path
         className="circle"
         d="M51.5 43C51.5 56.531 40.531 67.5 27 67.5C13.469 67.5 2.5 56.531 2.5 43C2.5 29.469 13.469 18.5 27 18.5C40.531 18.5 51.5 29.469 51.5 43Z"
-        stroke={secondary}
+        stroke={secondary[4]}
         strokeWidth="1.5"
       />
       <path
         className="circle"
         d="M60.5 70C60.5 83.531 49.531 94.5 36 94.5C22.469 94.5 11.5 83.531 11.5 70C11.5 56.469 22.469 45.5 36 45.5C49.531 45.5 60.5 56.469 60.5 70Z"
-        stroke={secondary}
+        stroke={secondary[4]}
         strokeWidth="1.5"
       />
       <path
         className="circle"
         d="M89.5 70C89.5 83.531 78.531 94.5 65 94.5C51.469 94.5 40.5 83.531 40.5 70C40.5 56.469 51.469 45.5 65 45.5C78.531 45.5 89.5 56.469 89.5 70Z"
-        stroke={secondary}
+        stroke={secondary[4]}
         strokeWidth="1.5"
       />
       <path
         className="circle"
         d="M75.5 26C75.5 39.531 64.531 50.5 51 50.5C37.469 50.5 26.5 39.531 26.5 26C26.5 12.469 37.469 1.5 51 1.5C64.531 1.5 75.5 12.469 75.5 26Z"
-        stroke={secondary}
+        stroke={secondary[4]}
         strokeWidth="1.5"
       />
       <path
         className="pentagram"
         d={minorPentagram}
-        stroke={primary}
+        stroke={secondary[0]}
         strokeWidth="1.5"
       />
       <path
         className="major-hexagon"
         d={majorHexagon}
-        stroke={primary}
+        stroke={secondary[0]}
         strokeWidth="1.5"
       />
       <path
         className="hexagon"
         d={minorHexagon}
-        stroke={primary}
+        stroke={secondary[0]}
         strokeWidth="1.5"
       />
     </svg>

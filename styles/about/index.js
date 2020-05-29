@@ -28,13 +28,13 @@ export const StyledTitle = styled(Text)`
 
 export const StyledChartsTitle = styled(Text)(({ theme }) => {
   const {
-    color: { special },
+    colors: { secondary },
   } = theme
 
   return `
     margin-bottom: 0;
     text-align: center;
-    color: ${special};
+    color: ${secondary[0]};
   `
 })
 
@@ -58,7 +58,7 @@ export const StyledNav = styled.nav`
 
 export const StyledNavItem = styled(Text)(({ active, theme }) => {
   const {
-    color: { link },
+    colors: { secondary },
   } = theme
 
   return `
@@ -66,12 +66,12 @@ export const StyledNavItem = styled(Text)(({ active, theme }) => {
   position: relative;
   cursor: pointer;
   transition: color 0.2s linear, opacity 0.2s linear;
-  color: ${link}
+  color: ${secondary[0]}
 
   &:hover {
     opacity: 0.8;
     &::before {
-      background-color:${link};
+      background-color:${secondary[0]};
     }
   }
 
@@ -82,7 +82,7 @@ export const StyledNavItem = styled(Text)(({ active, theme }) => {
     bottom: 0;
     right: 0;
     transition: background-color 0.4s linear;
-    background-color: ${active ? link : "transparent"};
+    background-color: ${active ? secondary[0] : "transparent"};
   }
 `
 })

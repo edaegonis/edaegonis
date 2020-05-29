@@ -4,21 +4,21 @@ import PropTypes from "prop-types"
 
 const StyledInput = styled.input(({ theme, selectedSize }) => {
   const {
-    color: { base, link },
+    colors: { secondary },
     settings: {
-      [selectedSize]: { size, line_height }
-    }
+      [selectedSize]: { size, line_height },
+    },
   } = theme
   return `
     outline: none;
     background: none;
     border: none;
     padding: .6rem 0;
-    border-bottom: 1px solid ${link}
+    border-bottom: 1px solid ${secondary[0]}
     font-size: ${size};
     line-height: ${line_height};
     text-indent: 1rem;
-    color: ${base};
+    color: ${secondary[2]};
     transition: all .4s cubic-bezier(1, 0.35, 0, 0.93);
 
     &:focus {
@@ -34,11 +34,11 @@ const Input = ({ size }) => <StyledInput selectedSize={size}></StyledInput>
 
 Input.propTypes = {
   /** The size for the input */
-  size: PropTypes.string
+  size: PropTypes.string,
 }
 
 Input.defaultProps = {
-  size: "small"
+  size: "small",
 }
 
 export default Input

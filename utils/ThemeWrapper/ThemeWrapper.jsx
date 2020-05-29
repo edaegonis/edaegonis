@@ -8,8 +8,9 @@ import Moon from "../../components/atoms/Icons/Moon"
 
 const StyledThemeSettingsWrapper = styled.span(({ theme }) => {
   const {
-    color: { special },
+    colors: { secondary },
   } = theme
+
   return `
     display: flex;
     align-items: center;
@@ -19,7 +20,7 @@ const StyledThemeSettingsWrapper = styled.span(({ theme }) => {
     bottom: 3rem;
     width: 4rem;
     height: 4rem;
-    background: ${special};
+    background: ${secondary[0]};
     border-radius: 50%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;

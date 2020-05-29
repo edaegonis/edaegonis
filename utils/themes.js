@@ -28,19 +28,8 @@ const generateMonochromaticPalette = (paletteType = "primary") => {
 }
 
 const getThemeFromColors = (colors) => {
-  const { primary, secondary } = colors
   const theme = {
-    color: {
-      baseBackground: primary[2],
-      base: secondary[2],
-      special: secondary[0],
-      link: secondary[0],
-    },
-    shader: primary,
-    logo: {
-      primary: secondary[0],
-      secondary: secondary[4],
-    },
+    colors,
     ...settings,
   }
 

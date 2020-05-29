@@ -23,21 +23,25 @@ export default () => (
               <Logo />
             </StyledAvatarWrapper>
             <StyledTitleSection>
-              <StyledTitle size="large">Harmonious interfaces.</StyledTitle>
-              <Text>Scalable high performing technology.</Text>
+              <StyledTitle size="large">
+                A place for sharing and growing
+              </StyledTitle>
+              <Text>That’s it. You shouldn’t expect too much tho ;)</Text>
             </StyledTitleSection>
           </StyledHeaderInfo>
         </Header>
 
         <Text>
-          Currently building elegant qualitative <a>things</a>
+          Maybe you can start by reading some of my <a>writings</a> or checking
+          out my
+          <a>projects</a>. You can also play mmorpg here Currently building
+          elegant qualitative <a>things</a>
         </Text>
 
         {/* {!isTyping ? "You can read more " : "Would you tell me your name? "} */}
         <Text>
-          Do you want{" "}
           <Link href="/about">
-            <a>more?</a>
+            <a>Who even are you?</a>
           </Link>
         </Text>
       </TextDocument>

@@ -5,15 +5,15 @@ import PropTypes from "prop-types"
 const StyledText = styled.p(({ theme, selectedSize }) => {
   const {
     settings: {
-      [selectedSize]: { size, line_height }
+      [selectedSize]: { size, line_height },
     },
-    color: { special, base }
+    colors: { secondary },
   } = theme
 
   return `
     font-size: ${size};
     line-height: ${line_height};
-    color: ${selectedSize === "large" ? special : base}
+    color: ${selectedSize === "large" ? secondary[0] : secondary[2]}
   `
 })
 
@@ -37,14 +37,14 @@ Text.propTypes = {
   /** The children components */
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
+    PropTypes.node,
   ]),
   /** The className for the element (generally from styled-components) */
-  className: PropTypes.string
+  className: PropTypes.string,
 }
 
 Text.defaultProps = {
-  size: "small"
+  size: "small",
 }
 
 export default Text
