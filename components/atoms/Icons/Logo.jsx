@@ -12,7 +12,7 @@ const majorHexagon = "M12.5 63L27.5 18.5H74.5L88.5 63L50.5 90L12.5 63Z"
 const ultraHexagon =
   "M1 33.2581L49.3871 1L101 33.2581L80.0323 91.3226H18.7419L1 33.2581Z"
 
-function Logo({ theme }) {
+function Logo({ size = "240", theme }) {
   const {
     colors: { secondary },
   } = theme
@@ -72,8 +72,8 @@ function Logo({ theme }) {
   return (
     <svg
       className="main-logo"
-      width="240"
-      height="240"
+      width={size}
+      height={size}
       viewBox="0 0 101 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

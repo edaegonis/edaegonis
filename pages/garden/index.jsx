@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Text from "../../components/atoms/Text/Text"
 import TextDocument from "../../components/layout/TextDocument/TextDocument"
 import Container from "../../components/layout/Container"
+import Header from "../../components/molecules/Header/Header"
 
 const StyledMainWrapper = styled.div`
   display: grid;
@@ -23,6 +24,7 @@ const StyledContentTitle = styled(Text)`
 export default () => (
   <section>
     <Container>
+      <Header />
       <TextDocument>
         <StyledMainWrapper>
           <div>
