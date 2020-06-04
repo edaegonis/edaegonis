@@ -46,7 +46,7 @@ export default () => (
             </Text>
 
             <div>
-              <Link href="/garden/computational-design">
+              <Link href="/garden/writings/computational-design">
                 <span>
                   <StyledContentTitle variation="h3" size="medium">
                     computational design <Text variation="span">4 min</Text>
