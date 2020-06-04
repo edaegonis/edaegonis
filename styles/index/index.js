@@ -9,6 +9,7 @@ export const StyledTitleSection = styled.section(({ theme }) => {
 
   return `
   flex: 1 auto;
+  margin: 1.6rem 0;
   text-align: center;
 
     @media (min-width: ${desktop_breakpoint}) {

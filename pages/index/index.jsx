@@ -23,7 +23,7 @@ export default () => (
               <Logo />
             </StyledAvatarWrapper>
             <StyledTitleSection>
-              <StyledTitle size="large">
+              <StyledTitle size="xlarge">
                 A place for sharing and growing
               </StyledTitle>
               <Text>That’s it. You shouldn’t expect too much tho ;)</Text>

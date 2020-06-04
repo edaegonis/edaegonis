@@ -37,7 +37,8 @@ const StyledNavigation = styled.nav`
   padding: 0 2em;
 
   @media (min-width: 60em) {
-    display: block;
+    display: flex;
+    align-items: center;
   }
 `
 
