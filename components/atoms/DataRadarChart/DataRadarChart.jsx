@@ -21,7 +21,7 @@ const DataRadarChart = ({ data, theme }) => {
       maxValue={100}
       gridLevels={6}
       enableDotLabel={true}
-      colors={secondary[0]}
+      colors={secondary[3]}
       dotLabelYOffset={-3}
       gridLabelOffset={9}
     />

@@ -11,18 +11,20 @@ const StyledText = styled.p(({ theme, selectedSize }) => {
   } = theme
 
   return `
+    margin: 0;
+    margin-bottom: 1rem;
     font-size: ${size};
     line-height: ${line_height};
-    color: ${selectedSize === "large" ? secondary[0] : secondary[2]}
+    color: ${selectedSize === "small" ? secondary[2] : secondary[0]};
   `
 })
 
 /**
  * Component responsible for rendering default text attributes and styles according to props
  */
-const Text = ({ size, children, className }) => (
+const Text = ({ variation, size, children, className }) => (
   <StyledText
-    as={size === "large" ? "h1" : "p"}
+    as={variation}
     selectedSize={size}
     className={className}
     data-testid="text"
@@ -32,8 +34,10 @@ const Text = ({ size, children, className }) => (
 )
 
 Text.propTypes = {
+  /** The text variation */
+  variation: PropTypes.oneOf(["span", "p", "h1", "h2", "h3"]),
   /** The size of the text to be rendered */
-  size: PropTypes.oneOf(["small", "medium", "large"]).isRequired,
+  size: PropTypes.oneOf(["small", "medium", "large", "xlarge"]).isRequired,
   /** The children components */
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
@@ -45,6 +49,7 @@ Text.propTypes = {
 
 Text.defaultProps = {
   size: "small",
+  variation: "p",
 }
 
 export default Text
