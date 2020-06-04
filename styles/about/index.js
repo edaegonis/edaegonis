@@ -56,7 +56,9 @@ export const StyledNav = styled.nav`
   justify-content: center;
 `
 
-export const StyledNavItem = styled(Text)(({ active, theme }) => {
+export const StyledNavItem = styled((props) => (
+  <Text size="small" {...props} />
+))(({ active, theme }) => {
   const {
     colors: { secondary },
   } = theme
