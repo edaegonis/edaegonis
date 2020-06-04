@@ -22,15 +22,19 @@ const StyledText = styled.p(({ theme, selectedSize }) => {
 /**
  * Component responsible for rendering default text attributes and styles according to props
  */
-const Text = ({ variation, size, children, className }) => (
-  <StyledText
-    as={variation}
-    selectedSize={size}
-    className={className}
-    data-testid="text"
-  >
-    {children}
-  </StyledText>
+const Text = React.forwardRef(
+  ({ variation, size, children, className, onClick }, ref) => (
+    <StyledText
+      className={className}
+      ref={ref}
+      as={variation}
+      selectedSize={size}
+      onClick={onClick}
+      data-testid="text"
+    >
+      {children}
+    </StyledText>
+  )
 )
 
 Text.propTypes = {

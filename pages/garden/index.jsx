@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import styled from "styled-components"
 
 import Text from "../../components/atoms/Text/Text"
@@ -45,17 +46,14 @@ export default () => (
             </Text>
 
             <div>
-              <StyledContentTitle variation="h3" size="medium">
-                computational design <Text variation="span">4 min</Text>
-              </StyledContentTitle>
-              <Text variation="span">read it here</Text>
-            </div>
-
-            <div>
-              <StyledContentTitle variation="h3" size="medium">
-                computational design <Text variation="span">4 min</Text>
-              </StyledContentTitle>
-              <Text variation="span">read it here</Text>
+              <Link href="/garden/computational-design">
+                <span>
+                  <StyledContentTitle variation="h3" size="medium">
+                    computational design <Text variation="span">4 min</Text>
+                  </StyledContentTitle>
+                  <Text variation="p">read it here</Text>
+                </span>
+              </Link>
             </div>
           </StyledContentWrapper>
         </StyledMainWrapper>
