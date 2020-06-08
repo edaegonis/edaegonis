@@ -4,16 +4,19 @@ import ReactMarkdown from "react-markdown"
 
 import Container from "../../../components/layout/Container"
 import TextDocument from "../../../components/layout/TextDocument/TextDocument"
+import { SyledMarkdownWrapper } from "../../../styles/garden/Writing"
 
 export default function Writing({ content, data }) {
   const frontmatter = data
   return (
     <section>
       <Container>
-        <TextDocument>
-          <h1>{frontmatter.title}</h1>
+        <TextDocument className="markdown-body">
+          <SyledMarkdownWrapper>
+            <h1>{frontmatter.title}</h1>
 
-          <ReactMarkdown source={content} />
+            <ReactMarkdown source={content} />
+          </SyledMarkdownWrapper>
         </TextDocument>
       </Container>
     </section>
