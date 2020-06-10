@@ -10,6 +10,7 @@ import TextDocument from "../../../components/layout/TextDocument/TextDocument"
 import { SyledMarkdownWrapper } from "../../../styles/garden/Writing"
 import { getHost, fetcher } from "../../../utils/api-helper"
 import Text from "../../../components/atoms/Text/Text"
+import Header from "../../../components/molecules/Header/Header"
 
 export default function Writing(props) {
   const {
@@ -48,6 +49,7 @@ export default function Writing(props) {
   return renderedContent ? (
     <section>
       <Container>
+        <Header />
         <TextDocument className="markdown-body">{renderedContent}</TextDocument>
       </Container>
     </section>

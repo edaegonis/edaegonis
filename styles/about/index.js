@@ -79,6 +79,7 @@ export const StyledNavItem = styled((props) => (
 
   &::before {
     content: "";
+    position: absolute;
     width: 20px;
     height: 2px;
     bottom: 0;
