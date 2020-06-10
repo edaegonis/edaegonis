@@ -2,11 +2,13 @@ import React from "react"
 import Link from "next/link"
 import styled from "styled-components"
 import useSwr from "swr"
+import matter from "gray-matter"
 
 import Text from "../../components/atoms/Text/Text"
 import TextDocument from "../../components/layout/TextDocument/TextDocument"
 import Container from "../../components/layout/Container"
 import Header from "../../components/molecules/Header/Header"
+import { getHost, fetcher } from "../../utils/api-helper"
 
 const StyledMainWrapper = styled.div`
   display: grid;
@@ -28,13 +30,6 @@ function getFormattedDate(date) {
 
   return formatted.toLocaleDateString("pt-BR", options)
 }
-
-function getHost(ctx) {
-  if (ctx.req) return "http://" + ctx.req.headers.host
-  return location.origin
-}
-
-const fetcher = (url) => fetch(url).then((res) => res.json())
 
 export default function Garden(props) {
   const initialData = props.data
@@ -71,11 +66,20 @@ export default function Garden(props) {
               ) : (
                 data.writings.length &&
                 data.writings.map((writing) => {
-                  const { id, title, created_at } = writing
+                  const { id, title, body, created_at } = writing
+                  const document = matter(body)
+
+                  const {
+                    data: { slug },
+                  } = document
 
                   return (
-                    <Link key={id} href={`/garden/writings/${id}`}>
-                      <span>
+                    <Link
+                      key={id}
+                      href="/garden/writings/[slug]"
+                      as={`/garden/writings/${slug}`}
+                    >
+                      <a>
                         <StyledContentTitle variation="h3" size="medium">
                           {title}
                           &nbsp; &nbsp;
@@ -83,7 +87,7 @@ export default function Garden(props) {
                             {getFormattedDate(created_at)}
                           </Text>
                         </StyledContentTitle>
-                      </span>
+                      </a>
                     </Link>
                   )
                 })

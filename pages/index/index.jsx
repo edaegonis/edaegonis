@@ -32,7 +32,10 @@ export default () => (
         </Header>
 
         <Text>
-          Maybe you can start by going to my <Link href="/garden">garden</Link>{" "}
+          Maybe you can start by going to my{" "}
+          <Link href="/garden">
+            <a>garden</a>
+          </Link>{" "}
           or checking out my <a>projects</a>. You can also play mmorpg{" "}
           <a>here</a>
         </Text>
