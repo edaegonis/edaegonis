@@ -127,6 +127,9 @@ const Header = () => {
         <ActiveLink href="/garden">
           <StyledNavItem>garden</StyledNavItem>
         </ActiveLink>
+        <ActiveLink href="/about">
+          <StyledNavItem>about</StyledNavItem>
+        </ActiveLink>
       </StyledNavigation>
 
       <StyledMobileIcons>

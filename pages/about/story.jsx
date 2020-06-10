@@ -6,11 +6,13 @@ import Container from "../../components/layout/Container"
 import AboutPageHeader from "../../components/molecules/AboutPageHeader/AboutPageHeader"
 
 import { StyledTitle } from "../../styles/about"
+import Header from "../../components/molecules/Header/Header"
 
 export default () => {
   return (
     <section>
       <Container>
+        <Header />
         <TextDocument>
           <AboutPageHeader />
 

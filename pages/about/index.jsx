@@ -18,6 +18,7 @@ import {
   StyledTextDocument,
 } from "../../styles/about"
 import { randomQuantityOptions } from "../../lib/random"
+import Header from "../../components/molecules/Header/Header"
 
 const RandomQuantityText = () => {
   const [randomQuantity, setRandomQuantity] = useState("quadrillions")
@@ -35,6 +36,8 @@ export default () => {
   return (
     <section>
       <Container>
+        <Header />
+
         <TextDocument>
           <AboutPageHeader />
 

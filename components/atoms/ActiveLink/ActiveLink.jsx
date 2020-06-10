@@ -9,7 +9,11 @@ export const ActiveLink = ({ children, ...props }) => {
   return (
     <Link {...props}>
       <span>
-        {React.cloneElement(child, { active: router.pathname === props.href })}
+        {React.cloneElement(child, {
+          active:
+            router.pathname === props.href ||
+            router.pathname.indexOf(props.as || props.href) !== -1,
+        })}
       </span>
     </Link>
   )

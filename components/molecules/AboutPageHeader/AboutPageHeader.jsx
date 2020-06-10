@@ -23,7 +23,7 @@ const AboutPageHeader = () => (
       </StyledTitleSection>
     </StyledHeaderInfo>
     <StyledNav>
-      <ActiveLink href="/about">
+      <ActiveLink href="/about" as="/about/index">
         <StyledNavItem>index</StyledNavItem>
       </ActiveLink>
       <ActiveLink href="/about/story">
