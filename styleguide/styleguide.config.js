@@ -5,7 +5,7 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, "../utils/ThemeWrapper/ThemeWrapper"),
   },
-  title: "Edusssrdo's Components Library",
+  title: "edaegonis's Components Library",
   /** This is necessary because styleguide overrides any webpack's output config */
   dangerouslyUpdateWebpackConfig: (config) => {
     config.output = {

@@ -2,6 +2,7 @@ import React from "react"
 import Link from "next/link"
 import styled from "styled-components"
 import matter from "gray-matter"
+import { Octokit } from "@octokit/rest"
 
 import Text from "../../components/atoms/Text/Text"
 import TextDocument from "../../components/layout/TextDocument/TextDocument"
@@ -56,28 +57,26 @@ export default function Garden({ writings }) {
                 writings
               </Text>
 
-              {writings.map((writing) => {
-                const {
-                  slug,
-                  document: {
-                    data: { title, date },
-                  },
-                } = writing
+              {writings &&
+                writings.map((writing) => {
+                  const { id, title, created_at } = writing
 
-                return (
-                  <div>
-                    <Link href={`/garden/writings/${slug}`}>
-                      <span>
-                        <StyledContentTitle variation="h3" size="medium">
-                          {title}
-                          &nbsp; &nbsp;
-                          <Text variation="span">{getFormattedDate(date)}</Text>
-                        </StyledContentTitle>
-                      </span>
-                    </Link>
-                  </div>
-                )
-              })}
+                  return (
+                    <div>
+                      <Link href={`/garden/writings/${id}`}>
+                        <span>
+                          <StyledContentTitle variation="h3" size="medium">
+                            {title}
+                            &nbsp; &nbsp;
+                            <Text variation="span">
+                              {getFormattedDate(created_at)}
+                            </Text>
+                          </StyledContentTitle>
+                        </span>
+                      </Link>
+                    </div>
+                  )
+                })}
             </StyledContentWrapper>
           </StyledMainWrapper>
         </TextDocument>
@@ -87,25 +86,16 @@ export default function Garden({ writings }) {
 }
 
 Garden.getInitialProps = async () => {
-  const writings = ((context) => {
-    const keys = context.keys()
-    const values = keys.map(context)
-    const data = keys.map((key, index) => {
-      const slug = key
-        .replace(/^.*[\\\/]/, "")
-        .split(".")
-        .slice(0, -1)
-        .join(".")
-      const value = values[index]
-      const document = matter(value.default)
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_PERSONAL_TOKEN,
+  })
 
-      return { document, slug }
-    })
-
-    return data
-  })(require.context("../../writings", true, /\.md$/))
+  const { data } = await octokit.issues.listForRepo({
+    owner: "edaegonis",
+    repo: "edaegonis",
+  })
 
   return {
-    writings,
+    writings: data,
   }
 }

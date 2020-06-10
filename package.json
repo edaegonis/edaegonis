@@ -1,5 +1,5 @@
 {
-  "name": "edusssrdo",
+  "name": "edaegonis",
   "author": {
     "name": "Eduardo Campos de Souza",
     "email": "edusssrdocampos@gmail.com"
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@nivo/radar": "^0.61.1",
+    "@octokit/rest": "^17.11.0",
     "@testing-library/jest-dom": "^5.1.1",
     "animejs": "^3.1.0",
     "gray-matter": "^4.0.2",
