@@ -14,6 +14,7 @@ const StyledHeader = styled.header`
   top: 0;
   height: 70px;
   line-height: 70px;
+  z-index: 9;
 `
 
 const StyledTitle = styled.h1`
@@ -99,9 +100,14 @@ const StyledMobileMenu = styled.div(({ theme }) => {
   `
 })
 
-const StyledMobileNavLink = styled(StyledNavItem)`
-  display: block;
-  text-align: center;
+const StyledMobileNavLinkWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span {
+    margin-bottom: 1.2rem;
+  }
 `
 
 const StyledMenuCloseIcon = styled.span`
@@ -145,11 +151,18 @@ const Header = () => {
           <ExitIcon />
         </StyledMenuCloseIcon>
 
-        <ActiveLink href="/garden">
-          <StyledMobileNavLink onClick={() => setMobileMenuActive(false)}>
-            garden
-          </StyledMobileNavLink>
-        </ActiveLink>
+        <StyledMobileNavLinkWrapper>
+          <ActiveLink href="/garden">
+            <StyledNavItem onClick={() => setMobileMenuActive(false)}>
+              garden
+            </StyledNavItem>
+          </ActiveLink>
+          <ActiveLink href="/about">
+            <StyledNavItem onClick={() => setMobileMenuActive(false)}>
+              about
+            </StyledNavItem>
+          </ActiveLink>
+        </StyledMobileNavLinkWrapper>
       </StyledMobileMenu>
     </StyledHeader>
   )
