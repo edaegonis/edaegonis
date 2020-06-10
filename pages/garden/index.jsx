@@ -1,7 +1,6 @@
-import React from "react"
+import React, { Fragment } from "react"
 import Link from "next/link"
 import styled from "styled-components"
-import matter from "gray-matter"
 import { Octokit } from "@octokit/rest"
 
 import Text from "../../components/atoms/Text/Text"
@@ -53,30 +52,32 @@ export default function Garden({ writings }) {
             </div>
 
             <StyledContentWrapper>
-              <Text variation="h2" size="large">
-                writings
-              </Text>
+              {writings && (
+                <Fragment>
+                  <Text variation="h2" size="large">
+                    writings
+                  </Text>
+                  {writings.map((writing) => {
+                    const { id, title, created_at } = writing
 
-              {writings &&
-                writings.map((writing) => {
-                  const { id, title, created_at } = writing
-
-                  return (
-                    <div>
-                      <Link href={`/garden/writings/${id}`}>
-                        <span>
-                          <StyledContentTitle variation="h3" size="medium">
-                            {title}
-                            &nbsp; &nbsp;
-                            <Text variation="span">
-                              {getFormattedDate(created_at)}
-                            </Text>
-                          </StyledContentTitle>
-                        </span>
-                      </Link>
-                    </div>
-                  )
-                })}
+                    return (
+                      <div>
+                        <Link href={`/garden/writings/${id}`}>
+                          <span>
+                            <StyledContentTitle variation="h3" size="medium">
+                              {title}
+                              &nbsp; &nbsp;
+                              <Text variation="span">
+                                {getFormattedDate(created_at)}
+                              </Text>
+                            </StyledContentTitle>
+                          </span>
+                        </Link>
+                      </div>
+                    )
+                  })}
+                </Fragment>
+              )}
             </StyledContentWrapper>
           </StyledMainWrapper>
         </TextDocument>
@@ -90,12 +91,17 @@ Garden.getInitialProps = async () => {
     auth: process.env.GITHUB_PERSONAL_TOKEN,
   })
 
-  const { data } = await octokit.issues.listForRepo({
-    owner: "edaegonis",
-    repo: "edaegonis",
-  })
+  try {
+    const { data } = await octokit.issues.listForRepo({
+      owner: "edaegonis",
+      repo: "edaegonis",
+    })
+    return {
+      writings: data,
+    }
+  } catch (e) {
+    console.log(e)
 
-  return {
-    writings: data,
+    return { writings: false }
   }
 }
