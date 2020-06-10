@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import Link from "next/link"
 import styled from "styled-components"
-import { Octokit } from "@octokit/rest"
+import useSwr from "swr"
 
 import Text from "../../components/atoms/Text/Text"
 import TextDocument from "../../components/layout/TextDocument/TextDocument"
@@ -29,7 +29,11 @@ function getFormattedDate(date) {
   return formatted.toLocaleDateString("pt-BR", options)
 }
 
-export default function Garden({ writings }) {
+const fetcher = (url) => fetch(url).then((res) => res.json())
+
+export default function Garden() {
+  const { data, error } = useSwr("/api/writings", fetcher)
+
   return (
     <section>
       <Container>
@@ -52,31 +56,31 @@ export default function Garden({ writings }) {
             </div>
 
             <StyledContentWrapper>
-              {writings && (
-                <Fragment>
-                  <Text variation="h2" size="large">
-                    writings
-                  </Text>
-                  {writings.map((writing) => {
-                    const { id, title, created_at } = writing
+              <Text variation="h2" size="large">
+                writings
+              </Text>
+              {error && <Text>Failed to load writings</Text>}
+              {!data ? (
+                <Text>Loading...</Text>
+              ) : (
+                data.writings.length &&
+                data.writings.map((writing) => {
+                  const { id, title, created_at } = writing
 
-                    return (
-                      <div>
-                        <Link href={`/garden/writings/${id}`}>
-                          <span>
-                            <StyledContentTitle variation="h3" size="medium">
-                              {title}
-                              &nbsp; &nbsp;
-                              <Text variation="span">
-                                {getFormattedDate(created_at)}
-                              </Text>
-                            </StyledContentTitle>
-                          </span>
-                        </Link>
-                      </div>
-                    )
-                  })}
-                </Fragment>
+                  return (
+                    <Link key={id} href={`/garden/writings/${id}`}>
+                      <span>
+                        <StyledContentTitle variation="h3" size="medium">
+                          {title}
+                          &nbsp; &nbsp;
+                          <Text variation="span">
+                            {getFormattedDate(created_at)}
+                          </Text>
+                        </StyledContentTitle>
+                      </span>
+                    </Link>
+                  )
+                })
               )}
             </StyledContentWrapper>
           </StyledMainWrapper>
@@ -84,24 +88,4 @@ export default function Garden({ writings }) {
       </Container>
     </section>
   )
-}
-
-Garden.getInitialProps = async () => {
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_PERSONAL_TOKEN,
-  })
-
-  try {
-    const { data } = await octokit.issues.listForRepo({
-      owner: "edaegonis",
-      repo: "edaegonis",
-    })
-    return {
-      writings: data,
-    }
-  } catch (e) {
-    console.log(e)
-
-    return { writings: false }
-  }
 }
