@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import Link from "next/link"
 import styled from "styled-components"
 import useSwr from "swr"
@@ -29,10 +29,16 @@ function getFormattedDate(date) {
   return formatted.toLocaleDateString("pt-BR", options)
 }
 
+function getHost(ctx) {
+  if (ctx.req) return "http://" + ctx.req.headers.host
+  return location.origin
+}
+
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
-export default function Garden() {
-  const { data, error } = useSwr("/api/writings", fetcher)
+export default function Garden(props) {
+  const initialData = props.data
+  const { data, error } = useSwr("/api/writings", fetcher, { initialData })
 
   return (
     <section>
@@ -88,4 +94,11 @@ export default function Garden() {
       </Container>
     </section>
   )
+}
+
+Garden.getInitialProps = async (ctx) => {
+  const url = getHost(ctx) + "/api/writings"
+  const data = await fetcher(url)
+
+  return { data }
 }
