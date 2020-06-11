@@ -131,7 +131,7 @@ const Header = () => {
 
       <StyledNavigation>
         <ActiveLink href="/garden">
-          <StyledNavItem>digital garden</StyledNavItem>
+          <StyledNavItem>garden</StyledNavItem>
         </ActiveLink>
         <ActiveLink href="/about">
           <StyledNavItem>about</StyledNavItem>
@@ -154,7 +154,7 @@ const Header = () => {
         <StyledMobileNavLinkWrapper>
           <ActiveLink href="/garden">
             <StyledNavItem onClick={() => setMobileMenuActive(false)}>
-              digital garden
+              garden
             </StyledNavItem>
           </ActiveLink>
           <ActiveLink href="/about">
