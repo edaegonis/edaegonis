@@ -3,6 +3,9 @@ import styled from "styled-components"
 export const SyledMarkdownWrapper = styled.div(({ theme }) => {
   const {
     colors: { primary, secondary },
+    settings: {
+      small: { size, line_height },
+    },
   } = theme
 
   return `
@@ -424,6 +427,14 @@ export const SyledMarkdownWrapper = styled.div(({ theme }) => {
       word-wrap: normal;
       background-color: initial;
       border: 0;
+    }
+
+    p {
+      margin: 0;
+      margin-bottom: 1rem;
+      font-size: ${size};
+      line-height: ${line_height};
+      color: ${secondary[2]};
     }
   `
 })
