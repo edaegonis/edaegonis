@@ -31,19 +31,15 @@ const StyledThemeSettingsButton = styled.span(({ theme }) => {
   `
 })
 
-const StyledThemeGeneratorWrapper = styled(StyledThemeSettingsButton)`
-  bottom: 8rem;
-`
-
-const StyledThemeSettingsWrapper = styled.div(({ theme }) => {
+const StyledThemeSettingsWrapper = styled.div(({ theme, isOpened }) => {
   const {
-    settings: {
-      small: { size },
-    },
+    settings: { desktop_breakpoint },
     colors: { secondary, primary },
   } = theme
 
   return `
+    visibility: ${isOpened ? "visible" : "hidden"};
+    opacity: ${isOpened ? "1" : "0"};
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -53,18 +49,58 @@ const StyledThemeSettingsWrapper = styled.div(({ theme }) => {
     right: 0;
     bottom: 0;
     z-index: 9;
-    border-top: 1px solid ${secondary[3]};
-    border-right: 1px solid ${secondary[3]};
+    border-top: .5px solid ${secondary[3]};
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
     background: linear-gradient(to left bottom, ${primary.map(
       (shade) => shade
     )});
     box-shadow: 0px 4px 4px ${secondary[4]};
+    transition: all .4s linear;
+
+    @media (min-width: ${desktop_breakpoint}) {
+      border-top-left-radius: 0;
+      border-right: 1px solid ${secondary[3]};
+    }
   `
 })
 
-const StyledExitIcon = styled(ExitIcon)`
+const StyledExitIconWrapper = styled.span`
   align-self: flex-end;
   cursor: pointer;
+`
+
+const StyledThemeIconWrapper = styled.span(({ theme }) => {
+  const {
+    colors: { secondary },
+  } = theme
+
+  return `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background: ${secondary[0]};
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    z-index: 3;
+  `
+})
+
+const StyledSettingRow = styled.div`
+  display: flex;
+  align-items: center;
+
+  a {
+    margin: 0;
+    margin-left: 1.2rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.2rem;
+  }
 `
 
 /**
@@ -72,6 +108,7 @@ const StyledExitIcon = styled(ExitIcon)`
  */
 const ThemeWrapper = ({ children }) => {
   const [isMounted, setIsMounted] = useState(false)
+  const [isSettingsPanelOpened, setIsSettingsPanelOpened] = useState(false)
   const [theme, setTheme] = useState(getDefaultTheme())
   const [isDarkTheme, setIsDarkTheme] = useState(true)
 
@@ -95,23 +132,39 @@ const ThemeWrapper = ({ children }) => {
     setIsDarkTheme((prev) => !prev)
   }
 
+  function handleSettingsPanelToggle() {
+    setIsSettingsPanelOpened((prev) => !prev)
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
 
       {children}
-      <StyledThemeGeneratorWrapper onClick={handleRandomThemeGeneration}>
-        <SunLogo />
-      </StyledThemeGeneratorWrapper>
-      <StyledThemeSettingsButton onClick={handleThemeTypeToggle}>
+
+      <StyledThemeSettingsButton onClick={handleSettingsPanelToggle}>
         <ConfigIcon />
-        {/* {isDarkTheme ? <SunLogo /> : <Moon />} */}
       </StyledThemeSettingsButton>
 
-      <StyledThemeSettingsWrapper>
-        <StyledExitIcon />
-        <Text>dark mode</Text>
-        <Text>generate random theme</Text>
+      <StyledThemeSettingsWrapper isOpened={isSettingsPanelOpened}>
+        <StyledExitIconWrapper onClick={handleSettingsPanelToggle}>
+          <ExitIcon />
+        </StyledExitIconWrapper>
+
+        <StyledSettingRow>
+          <StyledThemeIconWrapper onClick={handleThemeTypeToggle}>
+            {isDarkTheme ? <SunLogo /> : <Moon />}
+          </StyledThemeIconWrapper>
+
+          <Text variation="a" onClick={handleThemeTypeToggle}>
+            {isDarkTheme ? "switch to light mode" : "switch to dark mode"}
+          </Text>
+        </StyledSettingRow>
+        <StyledSettingRow>
+          <Text onClick={handleRandomThemeGeneration}>
+            generate random {isDarkTheme ? "dark" : "light"} theme
+          </Text>
+        </StyledSettingRow>
       </StyledThemeSettingsWrapper>
     </ThemeProvider>
   )
