@@ -5,8 +5,11 @@ import SunLogo from "../../components/atoms/Icons/Sun"
 import GlobalStyle from "../../styles/GlobalStyle"
 import { generateRandomTheme, getDefaultTheme } from "../themes"
 import Moon from "../../components/atoms/Icons/Moon"
+import ConfigIcon from "../../components/atoms/Icons/ConfigIcon"
+import ExitIcon from "../../components/atoms/Icons/ExitIcon"
+import Text from "../../components/atoms/Text/Text"
 
-const StyledThemeSettingsWrapper = styled.span(({ theme }) => {
+const StyledThemeSettingsButton = styled.span(({ theme }) => {
   const {
     colors: { secondary },
   } = theme
@@ -28,8 +31,40 @@ const StyledThemeSettingsWrapper = styled.span(({ theme }) => {
   `
 })
 
-const StyledThemeGeneratorWrapper = styled(StyledThemeSettingsWrapper)`
+const StyledThemeGeneratorWrapper = styled(StyledThemeSettingsButton)`
   bottom: 8rem;
+`
+
+const StyledThemeSettingsWrapper = styled.div(({ theme }) => {
+  const {
+    settings: {
+      small: { size },
+    },
+    colors: { secondary, primary },
+  } = theme
+
+  return `
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    max-width: 40rem;
+    padding: 1.5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    border-top: 1px solid ${secondary[3]};
+    border-right: 1px solid ${secondary[3]};
+    background: linear-gradient(to left bottom, ${primary.map(
+      (shade) => shade
+    )});
+    box-shadow: 0px 4px 4px ${secondary[4]};
+  `
+})
+
+const StyledExitIcon = styled(ExitIcon)`
+  align-self: flex-end;
+  cursor: pointer;
 `
 
 /**
@@ -68,8 +103,15 @@ const ThemeWrapper = ({ children }) => {
       <StyledThemeGeneratorWrapper onClick={handleRandomThemeGeneration}>
         <SunLogo />
       </StyledThemeGeneratorWrapper>
-      <StyledThemeSettingsWrapper onClick={handleThemeTypeToggle}>
-        {isDarkTheme ? <SunLogo /> : <Moon />}
+      <StyledThemeSettingsButton onClick={handleThemeTypeToggle}>
+        <ConfigIcon />
+        {/* {isDarkTheme ? <SunLogo /> : <Moon />} */}
+      </StyledThemeSettingsButton>
+
+      <StyledThemeSettingsWrapper>
+        <StyledExitIcon />
+        <Text>dark mode</Text>
+        <Text>generate random theme</Text>
       </StyledThemeSettingsWrapper>
     </ThemeProvider>
   )
