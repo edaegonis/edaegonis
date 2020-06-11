@@ -40,7 +40,7 @@ const StyledThemeSettingsWrapper = styled.div(({ theme, isOpened }) => {
   return `
     visibility: ${isOpened ? "visible" : "hidden"};
     opacity: ${isOpened ? "1" : "0"};
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     max-width: 40rem;
