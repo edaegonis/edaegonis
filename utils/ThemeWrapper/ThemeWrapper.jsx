@@ -44,7 +44,7 @@ const StyledThemeSettingsWrapper = styled.div(({ theme, isOpened }) => {
     display: flex;
     flex-direction: column;
     max-width: 40rem;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 4rem 1.5rem;
     left: 0;
     right: 0;
     bottom: 0;
@@ -59,6 +59,7 @@ const StyledThemeSettingsWrapper = styled.div(({ theme, isOpened }) => {
     transition: all .4s linear;
 
     @media (min-width: ${desktop_breakpoint}) {
+      padding: 2.5rem 2.5rem 4rem 2.5rem;
       border-top-left-radius: 0;
       border-right: 1px solid ${secondary[3]};
     }
@@ -95,7 +96,10 @@ const StyledSettingRow = styled.div`
 
   a {
     margin: 0;
-    margin-left: 1.2rem;
+  }
+
+  span {
+    margin-right: 1.2rem;
   }
 
   &:not(:last-child) {
@@ -142,9 +146,11 @@ const ThemeWrapper = ({ children }) => {
 
       {children}
 
-      <StyledThemeSettingsButton onClick={handleSettingsPanelToggle}>
-        <ConfigIcon />
-      </StyledThemeSettingsButton>
+      {!isSettingsPanelOpened && (
+        <StyledThemeSettingsButton onClick={handleSettingsPanelToggle}>
+          <ConfigIcon />
+        </StyledThemeSettingsButton>
+      )}
 
       <StyledThemeSettingsWrapper isOpened={isSettingsPanelOpened}>
         <StyledExitIconWrapper onClick={handleSettingsPanelToggle}>
@@ -161,7 +167,7 @@ const ThemeWrapper = ({ children }) => {
           </Text>
         </StyledSettingRow>
         <StyledSettingRow>
-          <Text onClick={handleRandomThemeGeneration}>
+          <Text variation="a" onClick={handleRandomThemeGeneration}>
             generate random {isDarkTheme ? "dark" : "light"} theme
           </Text>
         </StyledSettingRow>
