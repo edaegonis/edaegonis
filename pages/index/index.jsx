@@ -34,7 +34,7 @@ export default () => (
         <Text>
           Maybe you can start by going to my{" "}
           <Link href="/garden">
-            <a>garden</a>
+            <a>digital garden</a>
           </Link>{" "}
           or checking out my <a>projects</a>. You can also play mmorpg{" "}
           <a>here</a>

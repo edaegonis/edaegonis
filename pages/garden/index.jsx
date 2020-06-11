@@ -43,7 +43,7 @@ export default function Garden(props) {
           <StyledMainWrapper>
             <div>
               <Text variation="h1" size="xlarge">
-                garden
+                digital garden
               </Text>
               <Text>
                 this is where resides things that i’m currently working on. from
