@@ -39,7 +39,7 @@ const Text = React.forwardRef(
 
 Text.propTypes = {
   /** The text variation */
-  variation: PropTypes.oneOf(["span", "p", "h1", "h2", "h3"]),
+  variation: PropTypes.oneOf(["a", "span", "p", "h1", "h2", "h3"]),
   /** The size of the text to be rendered */
   size: PropTypes.oneOf(["small", "medium", "large", "xlarge"]).isRequired,
   /** The children components */

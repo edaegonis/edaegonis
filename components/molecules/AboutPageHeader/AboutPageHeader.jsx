@@ -29,8 +29,6 @@ const AboutPageHeader = () => (
       <ActiveLink href="/about/story">
         <StyledNavItem>story</StyledNavItem>
       </ActiveLink>
-      <StyledNavItem>works</StyledNavItem>
-      <StyledNavItem>texts</StyledNavItem>
     </StyledNav>
   </Header>
 )
