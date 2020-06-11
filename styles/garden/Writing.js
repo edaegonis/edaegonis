@@ -29,7 +29,6 @@ export const SyledMarkdownWrapper = styled.div(({ theme }) => {
     }
 
     h1 {
-      font-size: 2em;
       margin: 0.67em 0;
     }
 
@@ -41,7 +40,6 @@ export const SyledMarkdownWrapper = styled.div(({ theme }) => {
     kbd,
     pre {
       font-family: monospace, monospace;
-      font-size: 1em;
     }
 
     hr {
@@ -143,43 +141,25 @@ export const SyledMarkdownWrapper = styled.div(({ theme }) => {
       margin-bottom: 0;
     }
 
-    h1 {
-      font-size: 32px;
-    }
+   
 
     h1,
     h2 {
       font-weight: 600;
     }
 
-    h2 {
-      font-size: 24px;
-    }
 
-    h3 {
-      font-size: 20px;
-    }
 
     h3,
     h4 {
       font-weight: 600;
     }
 
-    h4 {
-      font-size: 16px;
-    }
 
-    h5 {
-      font-size: 14px;
-    }
 
     h5,
     h6 {
       font-weight: 600;
-    }
-
-    h6 {
-      font-size: 12px;
     }
 
     p {
@@ -311,30 +291,6 @@ export const SyledMarkdownWrapper = styled.div(({ theme }) => {
       line-height: 1.25;
     }
 
-    h1 {
-      font-size: 2em;
-    }
-
-    h2 {
-      font-size: 1.5em;
-    }
-
-    h3 {
-      font-size: 1.25em;
-    }
-
-    h4 {
-      font-size: 1em;
-    }
-
-    h5 {
-      font-size: 0.875em;
-    }
-
-    h6 {
-      font-size: 0.85em;
-      color: #6a737d;
-    }
 
     ol,
     ul {
@@ -368,7 +324,6 @@ export const SyledMarkdownWrapper = styled.div(({ theme }) => {
     dl dt {
       padding: 0;
       margin-top: 16px;
-      font-size: 1em;
       font-style: italic;
       font-weight: 600;
     }
