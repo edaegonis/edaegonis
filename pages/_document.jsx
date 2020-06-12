@@ -3,7 +3,7 @@ import { ServerStyleSheet, createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
   body {
-    font-family: 'Baloo 2', cursive,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: 'Baloo 2', Roboto, "Segoe UI", -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", cursive, sans-serif;
     text-rendering: optimizeLegibility;
   }
 `
@@ -44,7 +44,7 @@ export default class MyDocument extends Document {
           <script
             dangerouslySetInnerHTML={{
               __html:
-                '</script><link rel="preload" as="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" media="print" onload="this.media=\'all\'" /><script>',
+                '</script><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" media="print" onload="this.media=\'all\'" /><script>',
             }}
           />
         </Head>
