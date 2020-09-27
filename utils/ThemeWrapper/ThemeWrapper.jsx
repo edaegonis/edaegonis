@@ -43,7 +43,7 @@ const StyledThemeSettingsWrapper = styled.div(({ theme, isOpened }) => {
     position: fixed;
     display: flex;
     flex-direction: column;
-    max-width: 40rem;
+    max-width: 30rem;
     padding: 1.5rem 1.5rem 4rem 1.5rem;
     left: 0;
     right: 0;
@@ -111,18 +111,10 @@ const StyledSettingRow = styled.div`
  * Will wrap children components into a ThemeProvider
  */
 const ThemeWrapper = ({ children }) => {
-  const [isMounted, setIsMounted] = useState(false)
+  const defaultTheme = getDefaultTheme()
   const [isSettingsPanelOpened, setIsSettingsPanelOpened] = useState(false)
-  const [theme, setTheme] = useState(getDefaultTheme())
+  const [theme, setTheme] = useState(defaultTheme)
   const [isDarkTheme, setIsDarkTheme] = useState(true)
-
-  useEffect(() => {
-    if (isMounted) {
-      handleRandomThemeGeneration()
-    }
-
-    setIsMounted(true)
-  }, [isDarkTheme, setIsMounted])
 
   function handleRandomThemeGeneration() {
     const theme = generateRandomTheme(isDarkTheme && "dark")
@@ -141,7 +133,7 @@ const ThemeWrapper = ({ children }) => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isDarkTheme ? theme.dark : theme.light}>
       <GlobalStyle />
 
       {children}
@@ -168,7 +160,7 @@ const ThemeWrapper = ({ children }) => {
         </StyledSettingRow>
         <StyledSettingRow>
           <Text variation="a" onClick={handleRandomThemeGeneration}>
-            generate random {isDarkTheme ? "dark" : "light"} theme
+            generate random theme
           </Text>
         </StyledSettingRow>
       </StyledThemeSettingsWrapper>

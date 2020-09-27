@@ -37,31 +37,36 @@ const getThemeFromColors = (colors) => {
 }
 
 export const generateRandomTheme = (type = "dark") => {
-  let colors
-
-  switch (type) {
-    case "dark":
-      colors = {
-        primary: generateMonochromaticPalette(),
-        secondary: generateMonochromaticPalette("secondary"),
-      }
-      break
-
-    default:
-      colors = {
-        primary: generateMonochromaticPalette("secondary"),
-        secondary: generateMonochromaticPalette(),
-      }
-      break
+  const darkColors = {
+    primary: generateMonochromaticPalette(),
+    secondary: generateMonochromaticPalette("secondary"),
+  }
+  const darkTheme = getThemeFromColors(darkColors)
+  const lightColors = {
+    primary: generateMonochromaticPalette("secondary"),
+    secondary: generateMonochromaticPalette(),
   }
 
-  const theme = getThemeFromColors(colors)
+  const lightTheme = getThemeFromColors(lightColors)
 
-  return theme
+  return {
+    dark: darkTheme,
+    light: lightTheme,
+  }
 }
 
 export const getDefaultTheme = () => {
-  const theme = getThemeFromColors(colors)
+  /** default theme */
+  const darkTheme = getThemeFromColors(colors)
+  const lightColors = {
+    primary: colors.secondary,
+    secondary: colors.primary,
+  }
 
-  return theme
+  const lightTheme = getThemeFromColors(lightColors)
+
+  return {
+    dark: darkTheme,
+    light: lightTheme,
+  }
 }
