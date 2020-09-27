@@ -37,7 +37,9 @@ export default () => (
             <a>digital garden</a>
           </Link>{" "}
           or checking out my <a>projects</a>. You can also play mmorpg{" "}
-          <a>here</a>
+          <a href="https://arcanusot.servegame.com" target="_blank">
+            here
+          </a>
         </Text>
 
         {/* {!isTyping ? "You can read more " : "Would you tell me your name? "} */}
