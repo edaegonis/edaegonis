@@ -18,7 +18,7 @@ const AboutPageHeader = () => (
     <StyledHeaderInfo>
       <Avatar src="/images/avatar2.jpg" />
       <StyledTitleSection>
-        <StyledTitle size="large">hi, i am eduardo</StyledTitle>
+        <StyledTitle size="large">hi, I am eduardo</StyledTitle>
         <Text>an adept software engineer</Text>
       </StyledTitleSection>
     </StyledHeaderInfo>
